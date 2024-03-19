@@ -1,0 +1,65 @@
+{
+	"id": "GHSA-8v4j-7jgf-5rg9",
+	"advisories": [
+		{
+			"id": "GHSA-8v4j-7jgf-5rg9",
+			"title": "Warp vulnerable to Path Traversal via Improper validation of Windows paths",
+			"description": "Path resolution in `warp::filters::fs::dir` didn't correctly validate Windows paths meaning paths like `/foo/bar/c:/windows/web/screen/img101.png` would be allowed and respond with the contents of `c:/windows/web/screen/img101.png`. Thus users could potentially read files anywhere on the filesystem.\n\nThis only impacts Windows. Linux and other unix likes are not impacted by this.\n",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/seanmonstar/warp/issues/937"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/seanmonstar/warp/pull/997"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/seanmonstar/warp/commit/0074a0a3e98786509259bfe3821d3b3f094257aa"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/seanmonstar/warp"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2022-0082.html"
+				}
+			],
+			"published": "2023-01-31T23:33:47Z",
+			"modified": "2023-03-31T00:06:08Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "warp"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.3.3"
+					}
+				],
+				"fixed": [
+					"0.3.3"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

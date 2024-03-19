@@ -1,0 +1,61 @@
+{
+	"id": "GHSA-p56p-gq3f-whg8",
+	"advisories": [
+		{
+			"id": "GHSA-p56p-gq3f-whg8",
+			"title": "`Read` on uninitialized buffer may cause UB ( `read_entry()` )",
+			"description": "Affected versions of this crate passes an uninitialized buffer to a user-provided `Read` implementation.\nThere are two of such cases (`go_offset_log::read_entry()` & `offset_log::read_entry()`).\n\nArbitrary `Read` implementations can read from the uninitialized buffer (memory exposure) and also can return incorrect number of bytes written to the buffer.\nReading from uninitialized memory produces undefined values that can quickly invoke undefined behavior.\n",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/sunrise-choir/flumedb-rs/issues/10"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/sunrise-choir/flumedb-rs/pull/12/commits/1b643df85ca4a56f7d96105a9eb35e1b917ee488"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/sunrise-choir/flumedb-rs"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2021-0086.html"
+				}
+			],
+			"published": "2022-06-16T23:54:46Z",
+			"modified": "2022-06-16T23:54:46Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "flumedb"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.1.6"
+					}
+				],
+				"fixed": [
+					"0.1.6"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

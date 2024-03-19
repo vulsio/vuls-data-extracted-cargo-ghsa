@@ -1,0 +1,57 @@
+{
+	"id": "GHSA-gfgm-chr3-x6px",
+	"advisories": [
+		{
+			"id": "GHSA-gfgm-chr3-x6px",
+			"title": "prettytable-rs: Force cast a &Vec<T> to &[T] may lead to undefined behavior",
+			"description": "In function `Table::as_ref`, a reference of vector is force cast to slice. There are multiple problems here:\n1. To guarantee the size is correct, we have to first do `Vec::shrink_to_fit`. The function requires a mutable reference, so we have to force cast from immutable to mutable, which is undefined behavior (UB).\n2. Even if (1) is sound, `&Vec<T>` and `&[T]` still might not have the same layout. Treating them equally may lead to undefinted behavior (UB).\n",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "MODERATE"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/phsym/prettytable-rs/issues/145"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/phsym/prettytable-rs"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2022-0074.html"
+				}
+			],
+			"published": "2022-12-30T17:48:30Z",
+			"modified": "2022-12-30T17:48:30Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "prettytable-rs"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.10.0"
+					}
+				],
+				"fixed": [
+					"0.10.0"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

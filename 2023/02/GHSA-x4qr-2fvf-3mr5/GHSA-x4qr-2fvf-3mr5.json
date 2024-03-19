@@ -1,0 +1,130 @@
+{
+	"id": "GHSA-x4qr-2fvf-3mr5",
+	"advisories": [
+		{
+			"id": "GHSA-x4qr-2fvf-3mr5",
+			"title": "Vulnerable OpenSSL included in cryptography wheels",
+			"description": "pyca/cryptography's wheels include a statically linked copy of OpenSSL. The versions of OpenSSL included in cryptography 0.8.1-39.0.0  are vulnerable to a security issue. More details about the vulnerabilities themselves can be found in https://www.openssl.org/news/secadv/20221213.txt and https://www.openssl.org/news/secadv/20230207.txt.\n\nIf you are building cryptography source (\"sdist\") then you are responsible for upgrading your copy of OpenSSL. Only users installing from wheels built by the cryptography project (i.e., those distributed on PyPI) need to update their cryptography versions.\n\n",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:H",
+						"base_score": 7.4,
+						"base_severity": "HIGH",
+						"temporal_score": 7.4,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7.4,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/pyca/cryptography/security/advisories/GHSA-x4qr-2fvf-3mr5"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2023-0286"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://access.redhat.com/security/cve/cve-2023-0286"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-3.6.2-relnotes.txt"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://ftp.openbsd.org/pub/OpenBSD/patches/7.2/common/018_x509.patch.sig"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=2c6c9d439b484e1ba9830d8454a34fa4f80fdfe9"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=2f7530077e0ef79d98718138716bc51ca0cad658"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=fd2af07dc083a350c959147097003a14a5e8ac4d"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/pyca/cryptography"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2023-0006.html"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://security.gentoo.org/glsa/202402-08"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://www.openssl.org/news/secadv/20230207.txt"
+				}
+			],
+			"published": "2023-02-08T22:17:06Z",
+			"modified": "2023-03-01T01:47:38Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2023-0286"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "openssl-src"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "111.25.0"
+					}
+				],
+				"fixed": [
+					"111.25.0"
+				]
+			}
+		},
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "openssl-src"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "300.0.12",
+						"ge": "300.0.0"
+					}
+				],
+				"fixed": [
+					"300.0.12"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

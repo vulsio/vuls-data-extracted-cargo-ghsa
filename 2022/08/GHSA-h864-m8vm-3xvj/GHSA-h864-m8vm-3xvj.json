@@ -1,0 +1,57 @@
+{
+	"id": "GHSA-h864-m8vm-3xvj",
+	"advisories": [
+		{
+			"id": "GHSA-h864-m8vm-3xvj",
+			"title": "oqs's Post-Quantum Signature scheme Rainbow level I parametersets broken",
+			"description": "Ward Beullens found a practical key-recovery attack against Rainbow.\nThe level I parametersets are removed from liboqs starting from version `0.7.2`.\nFind the scientific details in [Breaking Rainbow Takes a Weekend on a Laptop](https://eprint.iacr.org/2022/214).\n\nThis means all the `oqs::sig::Algorithm::RainbowI*` variants are insecure.\n",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/open-quantum-safe/liboqs-rust"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://groups.google.com/a/list.nist.gov/g/pqc-forum/c/KFgw5_qCXiI?pli=1"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2022-0047.html"
+				}
+			],
+			"published": "2022-08-18T19:06:39Z",
+			"modified": "2022-08-18T19:06:39Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "oqs"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.7.2"
+					}
+				],
+				"fixed": [
+					"0.7.2"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

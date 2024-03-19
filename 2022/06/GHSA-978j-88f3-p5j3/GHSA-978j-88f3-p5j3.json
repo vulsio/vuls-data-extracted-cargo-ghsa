@@ -1,0 +1,57 @@
+{
+	"id": "GHSA-978j-88f3-p5j3",
+	"advisories": [
+		{
+			"id": "GHSA-978j-88f3-p5j3",
+			"title": "Threshold value is ignored (all shares are n=3)",
+			"description": "Affected versions of this crate did not properly calculate secret shares requirements.\n\nThis reduces the security of the algorithm by restricting the crate to always\nusing a threshold value of three, rather than a configurable limit.\n\nThe flaw was corrected by correctly configuring the threshold.\n",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "LOW"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/Nebulosus/shamir/issues/3"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/Nebulosus/shamir"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2020-0160.html"
+				}
+			],
+			"published": "2022-06-17T00:18:43Z",
+			"modified": "2022-06-17T00:18:43Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "shamir"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "2.0.0"
+					}
+				],
+				"fixed": [
+					"2.0.0"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

@@ -1,0 +1,61 @@
+{
+	"id": "GHSA-cqpr-pcm7-m3jc",
+	"advisories": [
+		{
+			"id": "GHSA-cqpr-pcm7-m3jc",
+			"title": "Potential segfault in `localtime_r` invocations",
+			"description": "### Impact\n\nUnix-like operating systems may segfault due to dereferencing a dangling pointer in specific circumstances. This requires an environment variable to be set in a different thread than the affected functions. This may occur without the user's knowledge, notably in a third-party library.\n\n### Workarounds \n\nNo workarounds are known.",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "MODERATE"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/chronotope/chrono/issues/499"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/time-rs/time/issues/293"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/chronotope/chrono"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2020-0159.html"
+				}
+			],
+			"published": "2022-06-16T23:48:34Z",
+			"modified": "2022-08-04T19:38:53Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "chrono"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.4.20"
+					}
+				],
+				"fixed": [
+					"0.4.20"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

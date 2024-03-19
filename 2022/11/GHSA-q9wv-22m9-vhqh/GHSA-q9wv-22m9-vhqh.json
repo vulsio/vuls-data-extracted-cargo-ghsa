@@ -1,0 +1,107 @@
+{
+	"id": "GHSA-q9wv-22m9-vhqh",
+	"advisories": [
+		{
+			"id": "GHSA-q9wv-22m9-vhqh",
+			"title": "Tauri Filesystem Scope can be Partially Bypassed",
+			"description": "### Impact\n\nDue to incorrect escaping of special characters in paths selected via the file dialog and drag and drop functionality, it was possible to partially bypass the `fs` scope definition. It was not possible to traverse into arbitrary paths, as the issue was limited to neighboring files and sub folders of already allowed paths.\n\nThe impact differs on Windows, MacOS and Linux due to different specifications of valid path characters.\n\nOn Linux or MacOS based systems it was possible to use the `*`, `**` and `[a-Z]` patterns inside a path, which allowed to read the content of sub directories and single character files in a folder, where only specific files or the directory itself were allowed.\n\nOn Windows `[a-Z]` was the possible bypass pattern, as `*` is not treated as a valid path component. This implies that only single character files inside an already allowed directory were unintentionally accessible.\n\nThis bypass depends on the file picker dialog or dragged files, as user selected paths are automatically added to the allow list at runtime.\n\nA successful bypass requires the user to select a pre-existing malicious file or directory during the file picker dialog and an adversary controlled logic to access these files. This means the issue by itself can not be abused and requires further intentional or unintentional privileges.\n\n### Workaround\n\nDisable the `dialog` and `fileDropEnabled` component inside the `tauri.conf.json`.\n\n### Patches\n\nThe issue has been resolved in #5237 and the implementation now properly escapes the special characters. The patch has been included in releases: `1.0.7`, `1.1.2` and `1.2.0`\n\n### For more information\n\nThis issue was initially reported by MessyComposer in #5234.\n\nIf you have any questions or comments about this advisory:\n\nOpen an issue in tauri\nEmail us at security@tauri.app",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:L/AC:H/PR:H/UI:R/S:C/C:L/I:N/A:N",
+						"base_score": 2.3,
+						"base_severity": "LOW",
+						"temporal_score": 2.3,
+						"temporal_severity": "LOW",
+						"environmental_score": 2.3,
+						"environmental_severity": "LOW"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "LOW"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/tauri-apps/tauri/security/advisories/GHSA-q9wv-22m9-vhqh"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2022-41874"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/tauri-apps/tauri/issues/5234"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/tauri-apps/tauri/pull/5237"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/tauri-apps/tauri"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2022-0091.html"
+				}
+			],
+			"published": "2022-11-08T17:33:26Z",
+			"modified": "2023-02-28T16:52:02Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2022-41874"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "Tauri"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "1.0.7",
+						"ge": "1.0.0"
+					}
+				],
+				"fixed": [
+					"1.0.7"
+				]
+			}
+		},
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "Tauri"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "1.1.2",
+						"ge": "1.1.0"
+					}
+				],
+				"fixed": [
+					"1.1.2"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

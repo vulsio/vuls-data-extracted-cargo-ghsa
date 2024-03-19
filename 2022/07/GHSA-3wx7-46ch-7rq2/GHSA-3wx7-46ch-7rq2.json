@@ -1,0 +1,142 @@
+{
+	"id": "GHSA-3wx7-46ch-7rq2",
+	"advisories": [
+		{
+			"id": "GHSA-3wx7-46ch-7rq2",
+			"title": "AES OCB fails to encrypt some bytes",
+			"description": "AES OCB mode for 32-bit x86 platforms using the AES-NI assembly optimized implementation will not encrypt the entirety of the data under some circumstances.  This could reveal sixteen bytes of data that was pre-existing in the memory that wasn't written.  In the special case of \"in place\" encryption, sixteen bytes of the plaintext would be revealed.\n\nSince OpenSSL does not support OCB based cipher suites for TLS and DTLS, they are both unaffected.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+						"base_score": 7.5,
+						"base_severity": "HIGH",
+						"temporal_score": 7.5,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7.5,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2022-2097"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://cert-portal.siemens.com/productcert/pdf/ssa-332410.pdf"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=919925673d6c9cfed3c1085497f5dfbbed5fc431"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=a98f339ddd7e8f487d6e0088d4a9a42324885a93"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/alexcrichton/openssl-src-rs"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://lists.debian.org/debian-lts-announce/2023/02/msg00019.html"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/R6CK57NBQFTPUMXAPJURCGXUYT76NQAK"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/V6567JERRHHJW2GNGJGKDRNHR7SNPZK7"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/VCMNWKERPBKOEBNL7CLTTX3ZZCZLH7XA"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2022-0032.html"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://security.gentoo.org/glsa/202210-02"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://security.netapp.com/advisory/ntap-20220715-0011"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://security.netapp.com/advisory/ntap-20230420-0008"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://www.debian.org/security/2023/dsa-5343"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://www.openssl.org/news/secadv/20220705.txt"
+				}
+			],
+			"published": "2022-07-06T19:57:19Z",
+			"modified": "2022-09-08T14:25:14Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2022-2097"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "openssl-src"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "111.22.0"
+					}
+				],
+				"fixed": [
+					"111.22.0"
+				]
+			}
+		},
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "openssl-src"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "300.0.9",
+						"ge": "300.0.0"
+					}
+				],
+				"fixed": [
+					"300.0.9"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

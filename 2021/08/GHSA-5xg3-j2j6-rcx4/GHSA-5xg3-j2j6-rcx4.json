@@ -1,0 +1,87 @@
+{
+	"id": "GHSA-5xg3-j2j6-rcx4",
+	"advisories": [
+		{
+			"id": "GHSA-5xg3-j2j6-rcx4",
+			"title": "Relative Path Traversal in git-delta",
+			"description": "git-delta before 0.8.3 on Windows resolves an executable's pathname as a relative path from the current directory.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+						"base_score": 7.8,
+						"base_severity": "HIGH",
+						"temporal_score": 7.8,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7.8,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2021-36376"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/dandavison/delta/commit/f01846bd443aaf92fdd5ac20f461beac3f6ee3fd"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/dandavison/delta"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/dandavison/delta/releases/tag/0.8.3"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2021-0105.html"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://vuln.ryotak.me/advisories/54"
+				}
+			],
+			"published": "2021-08-25T21:01:39Z",
+			"modified": "2021-09-09T16:46:42Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2021-36376"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "git-delta"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.8.3"
+					}
+				],
+				"fixed": [
+					"0.8.3"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

@@ -1,0 +1,58 @@
+{
+	"id": "GHSA-mpg5-fvwp-42m2",
+	"advisories": [
+		{
+			"id": "GHSA-mpg5-fvwp-42m2",
+			"title": "Unsoundness in `dashmap` references",
+			"description": "Reference returned by some methods of `Ref` (and similar types) may outlive the `Ref` and escape the lock.\nThis causes undefined behavior and may result in a segfault.\n\nMore information in [`dashmap#167`](https://github.com/xacrimon/dashmap/issues/167) issue.\n",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/xacrimon/dashmap/issues/167"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/xacrimon/dashmap"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2022-0002.html"
+				}
+			],
+			"published": "2022-06-16T23:52:24Z",
+			"modified": "2022-06-16T23:52:24Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "dashmap"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "5.1.0",
+						"ge": "5.0.0"
+					}
+				],
+				"fixed": [
+					"5.1.0"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

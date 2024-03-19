@@ -1,0 +1,83 @@
+{
+	"id": "GHSA-69fv-gw6g-8ccg",
+	"advisories": [
+		{
+			"id": "GHSA-69fv-gw6g-8ccg",
+			"title": "Potential memory corruption in arrayfire",
+			"description": "The attribute repr() added to enums to be compatible with C-FFI caused memory corruption on MSVC toolchain.\n\narrayfire crates <= version 3.5.0 do not have this issue when used with Rust versions 1.27 or earlier. The issue only started to appear since Rust version 1.28.\n\nThe issue seems to be interlinked with which version of Rust is being used.\n\nThe issue was fixed in crate 3.6.0.",
+			"severity": [
+				{
+					"type": "cvss_v30",
+					"source": "github.com/advisories",
+					"cvss_v30": {
+						"vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"base_score": 9.8,
+						"base_severity": "CRITICAL",
+						"temporal_score": 9.8,
+						"temporal_severity": "CRITICAL",
+						"environmental_score": 9.8,
+						"environmental_severity": "CRITICAL"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "CRITICAL"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2018-20998"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/arrayfire/arrayfire-rust/pull/177"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/arrayfire/arrayfire-rust"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/pypa/advisory-database/tree/main/vulns/arrayfire/PYSEC-2019-144.yaml"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2018-0011.html"
+				}
+			],
+			"published": "2021-08-25T20:43:26Z",
+			"modified": "2023-06-13T16:50:04Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2018-20998"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "arrayfire"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "3.6.0"
+					}
+				],
+				"fixed": [
+					"3.6.0"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

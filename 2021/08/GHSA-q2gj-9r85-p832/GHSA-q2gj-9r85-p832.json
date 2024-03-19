@@ -1,0 +1,77 @@
+{
+	"id": "GHSA-q2gj-9r85-p832",
+	"advisories": [
+		{
+			"id": "GHSA-q2gj-9r85-p832",
+			"title": "Data races in rulinalg",
+			"description": "The affected version of rulinalg has incorrect lifetime boundary definitions for RowMut::raw_slice and RowMut::raw_slice_mut. They do not conform with Rust's borrowing rule and allows the user to create multiple mutable references to the same location. This may result in unexpected calculation result and data race if both references are used at the same time.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"base_score": 9.8,
+						"base_severity": "CRITICAL",
+						"temporal_score": 9.8,
+						"temporal_severity": "CRITICAL",
+						"environmental_score": 9.8,
+						"environmental_severity": "CRITICAL"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "CRITICAL"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2020-35879"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/AtheMathmo/rulinalg/issues/201"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/AtheMathmo/rulinalg"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2020-0023.html"
+				}
+			],
+			"published": "2021-08-25T20:48:09Z",
+			"modified": "2023-06-13T20:47:12Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2020-35879"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "rulinalg"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"le": "0.4.2",
+						"ge": "0.4.0"
+					}
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

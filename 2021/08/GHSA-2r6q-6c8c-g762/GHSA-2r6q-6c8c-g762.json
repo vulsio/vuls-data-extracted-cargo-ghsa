@@ -1,0 +1,76 @@
+{
+	"id": "GHSA-2r6q-6c8c-g762",
+	"advisories": [
+		{
+			"id": "GHSA-2r6q-6c8c-g762",
+			"title": "Data races in toolshed",
+			"description": "An issue was discovered in the toolshed crate through 2020-11-15 for Rust. In CopyCell<T>, the Send trait lacks bounds on the contained type.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"base_score": 8.1,
+						"base_severity": "HIGH",
+						"temporal_score": 8.1,
+						"temporal_severity": "HIGH",
+						"environmental_score": 8.1,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2020-36456"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/ratel-rust/toolshed/issues/12"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/ratel-rust/toolshed"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2020-0136.html"
+				}
+			],
+			"published": "2021-08-25T20:58:03Z",
+			"modified": "2021-08-18T20:21:02Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2020-36456"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "toolshed"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"le": "0.8.1"
+					}
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

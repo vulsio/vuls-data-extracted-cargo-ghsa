@@ -1,0 +1,76 @@
+{
+	"id": "GHSA-rpxm-vmr7-5f5f",
+	"advisories": [
+		{
+			"id": "GHSA-rpxm-vmr7-5f5f",
+			"title": "Data races in convec",
+			"description": "Affected versions of this crate unconditionally implement Send/Sync for `ConVec<T>`.\nThis allows users to insert `T` that is not Send or not Sync.\n\nThis allows users to create data races by using non-Send types like `Arc<Cell<_>>` or `Rc<_>` as `T` in `ConVec<T>`. It is also possible to create data races by using types like `Cell<_>` or `RefCell<_>` as `T` (types that are `Send` but not `Sync`).\nSuch data races can lead to memory corruption.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"base_score": 8.1,
+						"base_severity": "HIGH",
+						"temporal_score": 8.1,
+						"temporal_severity": "HIGH",
+						"environmental_score": 8.1,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2020-36445"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/krl/convec"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://raw.githubusercontent.com/rustsec/advisory-db/main/crates/convec/RUSTSEC-2020-0125.md"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2020-0125.html"
+				}
+			],
+			"published": "2021-08-25T20:59:15Z",
+			"modified": "2021-08-24T18:24:04Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2020-36445"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "convec"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"le": "2.0.1"
+					}
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

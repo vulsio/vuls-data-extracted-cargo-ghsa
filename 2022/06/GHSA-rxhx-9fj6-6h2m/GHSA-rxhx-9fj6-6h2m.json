@@ -1,0 +1,70 @@
+{
+	"id": "GHSA-rxhx-9fj6-6h2m",
+	"advisories": [
+		{
+			"id": "GHSA-rxhx-9fj6-6h2m",
+			"title": "enum_map macro can cause UB when `Enum` trait is incorrectly implemented",
+			"description": "Affected versions of this crate did not properly check the length of an enum when using `enum_map!` macro, trusting user-provided length.\n\nWhen the `LENGTH` in the `Enum` trait does not match the array length in the `EnumArray` trait, this can result in the initialization of the enum map with uninitialized types, which in turn can allow an attacker to execute arbitrary code.\n\nThis problem can only occur with a manual implementation of the Enum trait, it will never occur for enums that use `#[derive(Enum)]`.\n\nExample code that triggers this vulnerability looks like this:\n\n```rust\nenum E {\n    A,\n    B,\n    C,\n}\n\nimpl Enum for E {\n    const LENGTH: usize = 2;\n\n    fn from_usize(value: usize) -> E {\n        match value {\n            0 => E::A,\n            1 => E::B,\n            2 => E::C,\n            _ => unimplemented!(),\n        }\n    }\n\n    fn into_usize(self) -> usize {\n        self as usize\n    }\n}\n\nimpl<V> EnumArray<V> for E {\n    type Array = [V; 3];\n}\n\nlet _map: EnumMap<E, String> = enum_map! { _ => \"Hello, world!\".into() };\n```\n\nThe flaw was corrected in commit [b824e23](https://github.com/xfix/enum-map/commit/b824e232f2fb47837740070096ac253df8e80dfc) by putting `LENGTH` property on sealed trait for macro to read.\n",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/xfix/enum-map/commit/b824e232f2fb47837740070096ac253df8e80dfc"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/rustsec/advisory-db/blob/main/crates/enum-map/RUSTSEC-2022-0010.md"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/xfix/enum-map"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/xfix/enum-map/blob/master/CHANGELOG.md#version-202"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://gitlab.com/KonradBorowski/enum-map/-/blob/master/CHANGELOG.md#version-202"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2022-0010.html"
+				}
+			],
+			"published": "2022-06-16T23:53:32Z",
+			"modified": "2022-06-20T18:15:47Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "enum-map"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "2.0.2",
+						"ge": "2.0.0-2"
+					}
+				],
+				"fixed": [
+					"2.0.2"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

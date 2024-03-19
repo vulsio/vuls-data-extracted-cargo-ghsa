@@ -1,0 +1,79 @@
+{
+	"id": "GHSA-v5r6-6r3c-wqxc",
+	"advisories": [
+		{
+			"id": "GHSA-v5r6-6r3c-wqxc",
+			"title": "Memory exhaustion in asn1_der",
+			"description": "An issue was discovered in the asn1_der crate before 0.6.2 for Rust. Attackers can trigger memory exhaustion by supplying a large value in a length field.",
+			"severity": [
+				{
+					"type": "cvss_v30",
+					"source": "github.com/advisories",
+					"cvss_v30": {
+						"vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"base_score": 7.5,
+						"base_severity": "HIGH",
+						"temporal_score": 7.5,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7.5,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2019-15549"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/KizzyCode/asn1_der/issues/1"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/KizzyCode/asn1_der"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2019-0007.html"
+				}
+			],
+			"published": "2021-08-25T20:44:56Z",
+			"modified": "2021-08-19T21:22:28Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2019-15549"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "asn1_der"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.6.2"
+					}
+				],
+				"fixed": [
+					"0.6.2"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

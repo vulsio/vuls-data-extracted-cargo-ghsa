@@ -1,0 +1,74 @@
+{
+	"id": "GHSA-xq3c-8gqm-v648",
+	"advisories": [
+		{
+			"id": "GHSA-xq3c-8gqm-v648",
+			"title": "async-graphql / async-graphql - @DOS GraphQL Nested Fragments overflow",
+			"description": "### Impact\n\nExecuting deeply nested queries may cause stack overflow.\n\n### Patches\n\nUpgrade to `v4.0.6`\n",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"base_score": 7.5,
+						"base_severity": "HIGH",
+						"temporal_score": 7.5,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7.5,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/async-graphql/async-graphql/security/advisories/GHSA-xq3c-8gqm-v648"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/async-graphql/async-graphql/commit/521769b80039fc8043d1c9883e3d6e5b57359072"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/async-graphql/async-graphql"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2022-0037.html"
+				}
+			],
+			"published": "2022-07-29T22:22:27Z",
+			"modified": "2022-07-29T22:22:27Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "async-graphql"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "4.0.6"
+					}
+				],
+				"fixed": [
+					"4.0.6"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

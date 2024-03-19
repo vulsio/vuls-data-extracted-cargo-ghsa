@@ -1,0 +1,59 @@
+{
+	"id": "GHSA-gm68-g349-gxgg",
+	"advisories": [
+		{
+			"id": "GHSA-gm68-g349-gxgg",
+			"title": "Denial of service in bingrep",
+			"description": "Bingrep v0.8.5 was discovered to contain a memory allocation failure which can cause a Denial of Service (DoS).",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "MODERATE"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2021-39480"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/m4b/bingrep/issues/30"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/m4b/bingrep"
+				}
+			],
+			"published": "2022-01-28T22:35:16Z",
+			"modified": "2022-01-28T22:20:30Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2021-39480"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "bingrep"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"eq": "0.8.5"
+					}
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

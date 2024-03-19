@@ -1,0 +1,103 @@
+{
+	"id": "GHSA-w9vv-q986-vj7x",
+	"advisories": [
+		{
+			"id": "GHSA-w9vv-q986-vj7x",
+			"title": "Out of bounds read in uu_od",
+			"description": "An issue was discovered in PartialReader in the uu_od crate before 0.0.4 for Rust. Attackers can read the contents of uninitialized memory locations via a user-provided Read operation.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+						"base_score": 7.3,
+						"base_severity": "HIGH",
+						"temporal_score": 7.3,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7.3,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2021-29934"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/uutils/coreutils/issues/1729"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/uutils/coreutils/pull/1730"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/uutils/coreutils/pull/1738"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/uutils/coreutils/pull/1739"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/uutils/coreutils/commit/39d62c6c1f809022c903180471c10fde6ecd12d1"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/uutils/coreutils/commit/5935876f38498b0c1f657d031171eb17028def6f"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/uutils/coreutils/commit/7341a1a033aa5980ac59bc9d4df978b396de4fad"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/uutils/coreutils"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2021-0043.html"
+				}
+			],
+			"published": "2021-08-25T20:54:24Z",
+			"modified": "2021-08-19T17:09:13Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2021-29934"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "uu_od"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.0.4"
+					}
+				],
+				"fixed": [
+					"0.0.4"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

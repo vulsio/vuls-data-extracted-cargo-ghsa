@@ -1,0 +1,52 @@
+{
+	"id": "GHSA-pp8r-vv2j-9j5v",
+	"advisories": [
+		{
+			"id": "GHSA-pp8r-vv2j-9j5v",
+			"title": "traitobject is Unmaintained",
+			"description": "Crate `traitobject` has not had a release for over five years.\n\nIn addition there is an existing security advisory that has not been addressed:\n\n - [RUSTSEC-2020-0027](https://rustsec.org/advisories/RUSTSEC-2020-0027)\n\n## Possible Alternative(s)\n\n The below list has not been vetted in any way and may or may not contain alternatives;\n\n - [destructure_traitobject]\n\n[destructure_traitobject]: https://crates.io/crates/destructure_traitobject\n",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "CRITICAL"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/reem/rust-traitobject/issues/7"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/reem/rust-traitobject"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2021-0144.html"
+				}
+			],
+			"published": "2022-09-16T17:12:59Z",
+			"modified": "2022-09-16T17:12:59Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "traitobject"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{}
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

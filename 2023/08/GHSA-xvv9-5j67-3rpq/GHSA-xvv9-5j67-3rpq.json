@@ -1,0 +1,77 @@
+{
+	"id": "GHSA-xvv9-5j67-3rpq",
+	"advisories": [
+		{
+			"id": "GHSA-xvv9-5j67-3rpq",
+			"title": "zola Path Traversal vulnerability",
+			"description": "An issue was discovered in zola 0.13.0 through 0.17.2. The custom implementation of a web server, available via the \"zola serve\" command, allows directory traversal. The `handle_request` function, used by the server to process HTTP requests, does not account for sequences of special path control characters (`../`) in the URL when serving a file, which allows one to escape the webroot of the server and read arbitrary files from the filesystem.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+						"base_score": 7.5,
+						"base_severity": "HIGH",
+						"temporal_score": 7.5,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7.5,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2023-40274"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/getzola/zola/issues/2257"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/getzola/zola/pull/2258"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/getzola/zola"
+				}
+			],
+			"published": "2023-08-14T03:30:32Z",
+			"modified": "2023-08-22T18:39:53Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2023-40274"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "zola"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"le": "0.17.2",
+						"ge": "0.13.0"
+					}
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

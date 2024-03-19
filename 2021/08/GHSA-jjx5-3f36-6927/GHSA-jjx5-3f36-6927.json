@@ -1,0 +1,83 @@
+{
+	"id": "GHSA-jjx5-3f36-6927",
+	"advisories": [
+		{
+			"id": "GHSA-jjx5-3f36-6927",
+			"title": "Incorrect buffer size calculation in iced-x86",
+			"description": "An issue was discovered in the iced-x86 crate through 1.10.3 for Rust. In Decoder::new(), slice.get_unchecked(slice.length()) is used unsafely.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"base_score": 9.8,
+						"base_severity": "CRITICAL",
+						"temporal_score": 9.8,
+						"temporal_severity": "CRITICAL",
+						"environmental_score": 9.8,
+						"environmental_severity": "CRITICAL"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "CRITICAL"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2021-38188"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/icedland/iced/issues/168"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/icedland/iced/commit/3c607a003e03b773108401d109167d1840487dce"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/icedland/iced"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2021-0068.html"
+				}
+			],
+			"published": "2021-08-25T20:55:47Z",
+			"modified": "2021-08-18T21:31:51Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2021-38188"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "iced-x86"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "1.11.0"
+					}
+				],
+				"fixed": [
+					"1.11.0"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

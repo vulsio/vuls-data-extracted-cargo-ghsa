@@ -1,0 +1,76 @@
+{
+	"id": "GHSA-qg24-8xj4-gj2h",
+	"advisories": [
+		{
+			"id": "GHSA-qg24-8xj4-gj2h",
+			"title": "Unaligned memory allocation in chunky",
+			"description": "An issue was discovered in the chunky crate through 2020-08-25 for Rust. The Chunk API does not honor an alignment requirement.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+						"base_score": 7.5,
+						"base_severity": "HIGH",
+						"temporal_score": 7.5,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7.5,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2020-36433"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/aeplay/chunky/issues/2"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/aeplay/chunky"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2020-0035.html"
+				}
+			],
+			"published": "2021-08-25T20:58:13Z",
+			"modified": "2021-08-18T20:17:28Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2020-36433"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "chunky"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"le": "0.3.7"
+					}
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

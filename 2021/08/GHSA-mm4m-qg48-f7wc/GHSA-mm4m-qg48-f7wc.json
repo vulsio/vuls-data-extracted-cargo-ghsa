@@ -1,0 +1,106 @@
+{
+	"id": "GHSA-mm4m-qg48-f7wc",
+	"advisories": [
+		{
+			"id": "GHSA-mm4m-qg48-f7wc",
+			"title": "Improper Synchronization and Race Condition in vm-memory",
+			"description": "rust-vmm vm-memory before 0.1.1 and 0.2.x before 0.2.1 allows attackers to cause a denial of service (loss of IP networking) because read_obj and write_obj do not properly access memory. This affects aarch64 (with musl or glibc) and x86_64 (with musl).",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"base_score": 7.5,
+						"base_severity": "HIGH",
+						"temporal_score": 7.5,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7.5,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2020-13759"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/rust-vmm/vm-memory/issues/93"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/rust-vmm/vm-memory"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/rust-vmm/vm-memory/releases/tag/v0.1.1"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/rust-vmm/vm-memory/releases/tag/v0.2.1"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2020-0157.html"
+				}
+			],
+			"published": "2021-08-25T21:01:29Z",
+			"modified": "2022-06-14T20:12:33Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2020-13759"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "vm-memory"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.1.1"
+					}
+				],
+				"fixed": [
+					"0.1.1"
+				]
+			}
+		},
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "vm-memory"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.2.1",
+						"ge": "0.2.0"
+					}
+				],
+				"fixed": [
+					"0.2.1"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

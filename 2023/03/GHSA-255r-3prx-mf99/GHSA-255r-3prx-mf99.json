@@ -1,0 +1,57 @@
+{
+	"id": "GHSA-255r-3prx-mf99",
+	"advisories": [
+		{
+			"id": "GHSA-255r-3prx-mf99",
+			"title": "`rmp-serde` `Raw` and `RawRef` may crash when receiving invalid UTF-8",
+			"description": "It was found that `Raw::from_utf8` expects valid UTF-8. If invalid UTF-8 is received it can cause the process to crash.\n",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "MODERATE"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/3Hren/msgpack-rust/issues/305"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/3Hren/msgpack-rust"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2022-0092.html"
+				}
+			],
+			"published": "2023-03-22T22:21:49Z",
+			"modified": "2023-03-22T22:21:49Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "rmp-serde"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "1.1.1"
+					}
+				],
+				"fixed": [
+					"1.1.1"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

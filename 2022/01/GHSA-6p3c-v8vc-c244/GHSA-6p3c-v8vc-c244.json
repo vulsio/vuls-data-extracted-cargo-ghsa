@@ -1,0 +1,87 @@
+{
+	"id": "GHSA-6p3c-v8vc-c244",
+	"advisories": [
+		{
+			"id": "GHSA-6p3c-v8vc-c244",
+			"title": "The `total_size` function for partial read the length of any `FixVec` is incorrect in molecule.",
+			"description": "Anyone who uses total_size(..) function to partial read the length of any FixVec will get an incorrect result, due to an incorrect implementation. This has been resolved in the 0.7.2 release.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"base_score": 9.8,
+						"base_severity": "CRITICAL",
+						"temporal_score": 9.8,
+						"temporal_severity": "CRITICAL",
+						"environmental_score": 9.8,
+						"environmental_severity": "CRITICAL"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "CRITICAL"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/nervosnetwork/molecule/security/advisories/GHSA-82hm-vh7g-hrh9"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2021-45697"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/nervosnetwork/molecule/pull/49"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/nervosnetwork/molecule"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://raw.githubusercontent.com/rustsec/advisory-db/main/crates/molecule/RUSTSEC-2021-0103.md"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2021-0103.html"
+				}
+			],
+			"published": "2022-01-06T22:10:34Z",
+			"modified": "2023-06-13T18:33:17Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2021-45697"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "molecule"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.7.2"
+					}
+				],
+				"fixed": [
+					"0.7.2"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

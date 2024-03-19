@@ -1,0 +1,79 @@
+{
+	"id": "GHSA-64j8-7gp2-xjx5",
+	"advisories": [
+		{
+			"id": "GHSA-64j8-7gp2-xjx5",
+			"title": "Data races in try-mutex",
+			"description": "Affected versions of this crate unconditionally implemented Sync trait for TryMutex<T> type. This allows users to put non-Send T type in TryMutex and send it to another thread, which can cause a data race. The flaw was corrected in the 0.3.0 release by adding T: Send bound for the Sync trait implementation.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+						"base_score": 5.5,
+						"base_severity": "MEDIUM",
+						"temporal_score": 5.5,
+						"temporal_severity": "MEDIUM",
+						"environmental_score": 5.5,
+						"environmental_severity": "MEDIUM"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "MODERATE"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2020-35924"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/mpdn/try-mutex/issues/2"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/mpdn/try-mutex"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2020-0087.html"
+				}
+			],
+			"published": "2021-08-25T20:50:28Z",
+			"modified": "2023-06-13T22:26:24Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2020-35924"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "try-mutex"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.3.0"
+					}
+				],
+				"fixed": [
+					"0.3.0"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

@@ -1,0 +1,57 @@
+{
+	"id": "GHSA-jmwx-r3gq-qq3p",
+	"advisories": [
+		{
+			"id": "GHSA-jmwx-r3gq-qq3p",
+			"title": "vec-const attempts to construct a Vec from a pointer to a const slice",
+			"description": "Affected versions of this crate claimed to construct a const `Vec` with nonzero length and capacity, but that cannot be done because such a `Vec` requires a pointer from an allocator.\n\nThe implementation was later changed to just construct a `std::borrow::Cow`.\n",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "MODERATE"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/Eolu/vec-const/issues/1#issuecomment-898908241"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/Eolu/vec-const"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2021-0082.html"
+				}
+			],
+			"published": "2022-06-17T00:27:57Z",
+			"modified": "2022-06-17T00:27:57Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "vec-const"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "2.0.0"
+					}
+				],
+				"fixed": [
+					"2.0.0"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

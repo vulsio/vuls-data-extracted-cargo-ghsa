@@ -1,0 +1,83 @@
+{
+	"id": "GHSA-m9m5-cg5h-r582",
+	"advisories": [
+		{
+			"id": "GHSA-m9m5-cg5h-r582",
+			"title": "Improper random number generation in nanorand",
+			"description": "In versions of nanorand prior to 0.5.1, RandomGen implementations for standard unsigned integers could fail to properly generate numbers, due to using bit-shifting to truncate a 64-bit number, rather than just an as conversion. This often manifested as RNGs returning nothing but 0, including the cryptographically secure ChaCha random number generator.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N",
+						"base_score": 5.1,
+						"base_severity": "MEDIUM",
+						"temporal_score": 5.1,
+						"temporal_severity": "MEDIUM",
+						"environmental_score": 5.1,
+						"environmental_severity": "MEDIUM"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "MODERATE"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2020-35926"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/Absolucy/nanorand-rs/commit/5ba218ac29df4786b002d7d12b47fa0c04a331f2"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/Absolucy/nanorand-rs"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2020-0089.html"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://twitter.com/aspenluxxxy/status/1336684692284772352"
+				}
+			],
+			"published": "2021-08-25T20:50:24Z",
+			"modified": "2023-06-13T20:01:40Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2020-35926"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "nanorand"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.5.1"
+					}
+				],
+				"fixed": [
+					"0.5.1"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

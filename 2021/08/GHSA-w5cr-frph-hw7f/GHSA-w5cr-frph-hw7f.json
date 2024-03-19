@@ -1,0 +1,83 @@
+{
+	"id": "GHSA-w5cr-frph-hw7f",
+	"advisories": [
+		{
+			"id": "GHSA-w5cr-frph-hw7f",
+			"title": "Use of uninitialized buffer in rkyv",
+			"description": "An issue was discovered in the rkyv crate before 0.6.0 for Rust. When an archive is created via serialization, the archive content may contain uninitialized values of certain parts of a struct.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+						"base_score": 7.5,
+						"base_severity": "HIGH",
+						"temporal_score": 7.5,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7.5,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2021-31919"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/djkoloski/rkyv/issues/113"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/djkoloski/rkyv/commit/9c65ae9c2c67dd949b5c3aba9b8eba6da802ab7e"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/djkoloski/rkyv/commit/f141b560523a20557db6540576d153010bd18712"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2021-0054.html"
+				}
+			],
+			"published": "2021-08-25T21:01:50Z",
+			"modified": "2021-05-25T20:52:53Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2021-31919"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "rkyv"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.6.0"
+					}
+				],
+				"fixed": [
+					"0.6.0"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

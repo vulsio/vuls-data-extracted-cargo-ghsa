@@ -1,0 +1,88 @@
+{
+	"id": "GHSA-4cww-f7w5-x525",
+	"advisories": [
+		{
+			"id": "GHSA-4cww-f7w5-x525",
+			"title": "Stack consumption in trust-dns-server",
+			"description": "There's a stack overflow leading to a crash and potential DOS when processing additional records for return of MX or SRV record types from the server. This is only possible when a zone is configured with a null target for MX or SRV records. Prior to 0.16.0 the additional record processing was not supported by trust-dns-server. There Are no known issues with upgrading from 0.16 or 0.17 to 0.18.1. The remidy should be to upgrade to 0.18.1. If unable to do so, MX, SRV or other record types with a target to the null type, should be avoided.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"base_score": 7.5,
+						"base_severity": "HIGH",
+						"temporal_score": 7.5,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7.5,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2020-35857"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/bluejekyll/trust-dns/issues/980"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/bluejekyll/trust-dns/pull/982"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/bluejekyll/trust-dns/commit/8b9eab05795fdc098976262853b2498055c7a8f3"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/bluejekyll/trust-dns"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2020-0001.html"
+				}
+			],
+			"published": "2021-08-25T20:46:13Z",
+			"modified": "2023-12-08T19:31:23Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2020-35857"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "trust-dns-server"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.18.1",
+						"ge": "0.16.0"
+					}
+				],
+				"fixed": [
+					"0.18.1"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

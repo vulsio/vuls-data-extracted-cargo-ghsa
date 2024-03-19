@@ -1,0 +1,79 @@
+{
+	"id": "GHSA-cx4j-fxr7-jxg8",
+	"advisories": [
+		{
+			"id": "GHSA-cx4j-fxr7-jxg8",
+			"title": "Double free in glsl-layout",
+			"description": "Affected versions of this crate did not guard against panic within the user-provided function f (2nd parameter of fn map_array), and thus panic within f causes double drop of a single object.\n\nThe flaw was corrected in the 0.4.0 release by wrapping the object vulnerable to a double drop within ManuallyDrop<T>.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"base_score": 7.5,
+						"base_severity": "HIGH",
+						"temporal_score": 7.5,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7.5,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2021-25902"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/rustgd/glsl-layout/pull/10"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/rustgd/glsl-layout"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2021-0005.html"
+				}
+			],
+			"published": "2021-08-25T20:53:01Z",
+			"modified": "2023-06-13T18:09:24Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2021-25902"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "glsl-layout"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.4.0"
+					}
+				],
+				"fixed": [
+					"0.4.0"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

@@ -1,0 +1,80 @@
+{
+	"id": "GHSA-cw4j-cf6c-mmfv",
+	"advisories": [
+		{
+			"id": "GHSA-cw4j-cf6c-mmfv",
+			"title": "Use of Uninitialized Resource in binjs_io.",
+			"description": "An issue was discovered in the binjs_io crate through 2021-01-03 for Rust. The Read method may read from uninitialized memory locations.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"base_score": 9.8,
+						"base_severity": "CRITICAL",
+						"temporal_score": 9.8,
+						"temporal_severity": "CRITICAL",
+						"environmental_score": 9.8,
+						"environmental_severity": "CRITICAL"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "CRITICAL"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2021-45683"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/binast/binjs-ref/issues/460"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/Yoric/binjs-ref"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://raw.githubusercontent.com/rustsec/advisory-db/main/crates/binjs_io/RUSTSEC-2021-0085.md"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2021-0085.html"
+				}
+			],
+			"published": "2022-01-06T22:14:24Z",
+			"modified": "2022-01-07T17:36:37Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2021-45683"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "binjs_io"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"le": "0.2.1"
+					}
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

@@ -1,0 +1,91 @@
+{
+	"id": "GHSA-p24j-h477-76q3",
+	"advisories": [
+		{
+			"id": "GHSA-p24j-h477-76q3",
+			"title": "Uncontrolled Search Path Element in sharkdp/bat",
+			"description": "bat on windows before 0.18.2 executes programs named less.exe from the current working directory. This can lead to unintended code execution.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+						"base_score": 7.8,
+						"base_severity": "HIGH",
+						"temporal_score": 7.8,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7.8,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2021-36753"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/sharkdp/bat/pull/1724"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/sharkdp/bat/commit/bf2b2df9c9e218e35e5a38ce3d03cffb7c363956"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/sharkdp/bat"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/sharkdp/bat/releases/tag/v0.18.2"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2021-0106.html"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://vuln.ryotak.me/advisories/53"
+				}
+			],
+			"published": "2021-08-25T21:01:37Z",
+			"modified": "2021-09-09T16:57:53Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2021-36753"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "bat"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.18.2"
+					}
+				],
+				"fixed": [
+					"0.18.2"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

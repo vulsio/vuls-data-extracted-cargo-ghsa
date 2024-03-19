@@ -1,0 +1,84 @@
+{
+	"id": "GHSA-qc36-q22q-cjw3",
+	"advisories": [
+		{
+			"id": "GHSA-qc36-q22q-cjw3",
+			"title": "SMTP command injection in lettre",
+			"description": "### Impact\n\nAffected versions of lettre allowed SMTP command injection through an attacker's controlled message body. The module for escaping lines starting with a period wouldn't catch a period that was placed after a double CRLF sequence, allowing the attacker to end the current message and write arbitrary SMTP commands after it.\n\n### Fix\n\nThe flaw is fixed by correctly handling consecutive CRLF sequences.\n\n### References\n\n* [RUSTSEC-2021-0069](https://rustsec.org/advisories/RUSTSEC-2021-0069.html)\n\n\n\n",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"base_score": 9.8,
+						"base_severity": "CRITICAL",
+						"temporal_score": 9.8,
+						"temporal_severity": "CRITICAL",
+						"environmental_score": 9.8,
+						"environmental_severity": "CRITICAL"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "CRITICAL"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/lettre/lettre/security/advisories/GHSA-qc36-q22q-cjw3"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/lettre/lettre/pull/627/commits/93458d01fed0ec81c0e7b4e98e6f35961356fae2"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/lettre/lettre/commit/8bfc20506cc5e098fe6eb3d1cafe3bea791215ce"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/lettre/lettre"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2021-0069.html"
+				}
+			],
+			"published": "2021-07-12T17:03:27Z",
+			"modified": "2021-08-18T18:52:26Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2021-38189"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "lettre"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.9.6",
+						"ge": "0.7.0"
+					}
+				],
+				"fixed": [
+					"0.9.6"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

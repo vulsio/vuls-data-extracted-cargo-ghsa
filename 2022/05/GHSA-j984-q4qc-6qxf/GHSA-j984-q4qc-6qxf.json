@@ -1,0 +1,91 @@
+{
+	"id": "GHSA-j984-q4qc-6qxf",
+	"advisories": [
+		{
+			"id": "GHSA-j984-q4qc-6qxf",
+			"title": "librsvg DoS via Cyclic References",
+			"description": "librsvg before 2.40.12 allows context-dependent attackers to cause a denial of service (infinite loop, stack consumption, and application crash) via cyclic references in an SVG document.",
+			"severity": [
+				{
+					"type": "cvss_v30",
+					"source": "github.com/advisories",
+					"cvss_v30": {
+						"vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"base_score": 7.5,
+						"base_severity": "HIGH",
+						"temporal_score": 7.5,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7.5,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2015-7558"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://bugzilla.redhat.com/show_bug.cgi?id=1268243"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://git.gnome.org/browse/librsvg/commit/?id=a51919f7e1ca9c535390a746fbf6e28c8402dc61"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/GNOME/librsvg"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "http://www.debian.org/security/2016/dsa-3584"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "http://www.openwall.com/lists/oss-security/2015/12/21/5"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "http://www.openwall.com/lists/oss-security/2016/04/30/3"
+				}
+			],
+			"published": "2022-05-17T03:50:02Z",
+			"modified": "2023-08-04T23:10:05Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2015-7558"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "librsvg"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "2.40.12"
+					}
+				],
+				"fixed": [
+					"2.40.12"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

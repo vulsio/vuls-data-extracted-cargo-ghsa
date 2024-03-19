@@ -1,0 +1,84 @@
+{
+	"id": "GHSA-29mf-62xx-28jq",
+	"advisories": [
+		{
+			"id": "GHSA-29mf-62xx-28jq",
+			"title": "buffered-reader vulnerable to out-of-bounds array access leading to panic",
+			"description": "Affected versions of the crate have a bug where attacker-controlled input can result in the use of an out-of-bound array index. Rust\ndetects the use of the out-of-bound index and causes the application to panic.  An attacker may be able to use this to cause a denial-of-service.  However, it is not possible for an attacker to read from or write to the application's address space.\n",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "LOW"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/advisories/GHSA-25mx-8f3v-8wh7"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://gitlab.com/sequoia-pgp/sequoia"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://gitlab.com/sequoia-pgp/sequoia/-/blob/main/buffered-reader/NEWS"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://lists.sequoia-pgp.org/hyperkitty/list/announce@lists.sequoia-pgp.org/thread/SN2E3QRT4DMQ5JNEK6VIN6DJ5SH766DI"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2023-0039.html"
+				}
+			],
+			"published": "2023-06-06T01:58:41Z",
+			"modified": "2023-06-06T01:58:41Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "buffered-reader"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "1.0.2"
+					}
+				],
+				"fixed": [
+					"1.0.2"
+				]
+			}
+		},
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "buffered-reader"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "1.1.5",
+						"ge": "1.1.0"
+					}
+				],
+				"fixed": [
+					"1.1.5"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

@@ -1,0 +1,83 @@
+{
+	"id": "GHSA-fgfm-hqjw-3265",
+	"advisories": [
+		{
+			"id": "GHSA-fgfm-hqjw-3265",
+			"title": "Out-of-bounds Write in actix-web",
+			"description": "An issue was discovered in the actix-web crate before 0.7.15 for Rust. It can unsoundly extend the lifetime of a string, leading to memory corruption.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"base_score": 9.8,
+						"base_severity": "CRITICAL",
+						"temporal_score": 9.8,
+						"temporal_severity": "CRITICAL",
+						"environmental_score": 9.8,
+						"environmental_severity": "CRITICAL"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "CRITICAL"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2018-25025"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/actix/actix-web/issues/289"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/actix/actix-web.git"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://raw.githubusercontent.com/rustsec/advisory-db/main/crates/actix-web/RUSTSEC-2018-0019.md"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2018-0019.html"
+				}
+			],
+			"published": "2022-01-06T22:18:46Z",
+			"modified": "2022-01-06T18:35:59Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2018-25025"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "actix-web"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.7.15"
+					}
+				],
+				"fixed": [
+					"0.7.15"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

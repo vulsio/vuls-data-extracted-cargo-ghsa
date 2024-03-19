@@ -1,0 +1,83 @@
+{
+	"id": "GHSA-6q5w-m3c5-rv95",
+	"advisories": [
+		{
+			"id": "GHSA-6q5w-m3c5-rv95",
+			"title": "Data races in rusqlite",
+			"description": "An issue was discovered in the rusqlite crate before 0.23.0 for Rust. Memory safety can be violated via VTab / VTabCursor.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"base_score": 9.8,
+						"base_severity": "CRITICAL",
+						"temporal_score": 9.8,
+						"temporal_severity": "CRITICAL",
+						"environmental_score": 9.8,
+						"environmental_severity": "CRITICAL"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "CRITICAL"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2020-35866"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/rusqlite/rusqlite/commit/c9ef5bd63cad5c0c123344c072b490a1a9bcbe1f"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/rusqlite/rusqlite"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/rusqlite/rusqlite/releases/tag/0.23.0"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2020-0014.html"
+				}
+			],
+			"published": "2021-08-25T20:47:59Z",
+			"modified": "2021-08-19T21:08:01Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2020-35866"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "rusqlite"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.23.0"
+					}
+				],
+				"fixed": [
+					"0.23.0"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

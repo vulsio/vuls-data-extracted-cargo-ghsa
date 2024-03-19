@@ -1,0 +1,54 @@
+{
+	"id": "GHSA-8q5c-93vg-c747",
+	"advisories": [
+		{
+			"id": "GHSA-8q5c-93vg-c747",
+			"title": "WITHDRAWN",
+			"description": "WITHDRAWN",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "MODERATE"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/ratel-rust/toolshed/issues/12"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/ratel-rust/toolshed"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2020-0136.html"
+				}
+			],
+			"published": "2021-08-25T21:00:30Z",
+			"modified": "2021-08-19T19:03:37Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "toolshed"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"le": "0.8.1"
+					}
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

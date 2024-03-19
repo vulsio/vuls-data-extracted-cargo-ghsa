@@ -1,0 +1,80 @@
+{
+	"id": "GHSA-f997-8gxg-r354",
+	"advisories": [
+		{
+			"id": "GHSA-f997-8gxg-r354",
+			"title": "Data races in lexer",
+			"description": "lexer is a plugin based lexical reader.Affected versions of this crate implements Sync for ReaderResult<T, E> with the trait bound T: Send, E: Send. Since matching on the public enum ReaderResult<T, E> provides access to &T & &E, allowing data race to a non-Sync type T or E. This can result in a memory corruption when multiple threads concurrently access &T or &E. Suggested fix for the bug is change the trait bounds imposed on T & E to be T: Sync, E: Sync.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"base_score": 8.1,
+						"base_severity": "HIGH",
+						"temporal_score": 8.1,
+						"temporal_severity": "HIGH",
+						"environmental_score": 8.1,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2020-36458"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://gitlab.com/nathanfaucett/rs-lexer"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://gitlab.com/nathanfaucett/rs-lexer/-/issues/2"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://raw.githubusercontent.com/rustsec/advisory-db/main/crates/lexer/RUSTSEC-2020-0138.md"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2020-0138.html"
+				}
+			],
+			"published": "2021-08-25T20:58:09Z",
+			"modified": "2022-05-05T18:16:25Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2020-36458"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "lexer"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"le": "0.1.16"
+					}
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

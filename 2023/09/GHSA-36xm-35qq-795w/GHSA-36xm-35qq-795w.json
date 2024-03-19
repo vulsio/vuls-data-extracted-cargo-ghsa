@@ -1,0 +1,61 @@
+{
+	"id": "GHSA-36xm-35qq-795w",
+	"advisories": [
+		{
+			"id": "GHSA-36xm-35qq-795w",
+			"title": "Inventory exposes reference to non-Sync data to an arbitrary thread",
+			"description": "Affected versions do not enforce a `Sync` bound on the type of caller-provided value held in the plugin registry. References to these values are made accessible to arbitrary threads other than the one that constructed them.\n\nA caller could use this flaw to submit thread-unsafe data into inventory, then access it as a reference simultaneously from multiple threads.\n\nThe flaw was corrected by enforcing that data submitted by the caller into inventory is `Sync`.",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "MODERATE"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/dtolnay/inventory/pull/42"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/dtolnay/inventory/commit/e1e347d2725b9c9dd4a70b63eb08532ca9687652"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/dtolnay/inventory"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2023-0058.html"
+				}
+			],
+			"published": "2023-09-11T20:43:41Z",
+			"modified": "2023-09-11T20:43:41Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "inventory"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.2.0"
+					}
+				],
+				"fixed": [
+					"0.2.0"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

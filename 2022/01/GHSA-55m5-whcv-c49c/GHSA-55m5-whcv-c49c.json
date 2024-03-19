@@ -1,0 +1,91 @@
+{
+	"id": "GHSA-55m5-whcv-c49c",
+	"advisories": [
+		{
+			"id": "GHSA-55m5-whcv-c49c",
+			"title": "Use of Uninitialized Resource in smallvec",
+			"description": "Affected versions of this crate called mem::uninitialized() to create values of a user-supplied type T. This is unsound e.g. if T is a reference type (which must be non-null and thus may not remain uninitialized). The flaw was corrected by avoiding the use of mem::uninitialized(), using MaybeUninit instead.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+						"base_score": 7.5,
+						"base_severity": "HIGH",
+						"temporal_score": 7.5,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7.5,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2018-25023"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/servo/rust-smallvec/issues/126"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/servo/rust-smallvec/pull/162"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/servo/rust-smallvec/commit/e64afc8c473d43e375ab42bd33db2d0d4ac4e41b"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/servo/rust-smallvec"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://raw.githubusercontent.com/rustsec/advisory-db/main/crates/smallvec/RUSTSEC-2018-0018.md"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2018-0018.html"
+				}
+			],
+			"published": "2022-01-06T22:20:28Z",
+			"modified": "2023-06-13T20:53:48Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2018-25023"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "smallvec"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.6.13"
+					}
+				],
+				"fixed": [
+					"0.6.13"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

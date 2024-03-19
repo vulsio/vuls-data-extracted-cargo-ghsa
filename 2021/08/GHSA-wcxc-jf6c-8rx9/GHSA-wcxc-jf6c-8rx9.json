@@ -1,0 +1,57 @@
+{
+	"id": "GHSA-wcxc-jf6c-8rx9",
+	"advisories": [
+		{
+			"id": "GHSA-wcxc-jf6c-8rx9",
+			"title": " Uncaught Exception in libpulse-binding",
+			"description": "Affected versions of this crate failed to catch panics crossing FFI boundaries via callbacks, which\nis a form of UB. This flaw was corrected by [this commit][1] which was included in version 2.6.0.",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "MODERATE"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/jnqnfe/pulse-binding-rust/commit/7fd282aef7787577c385aed88cb25d004b85f494"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/jnqnfe/pulse-binding-rust"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2019-0038.html"
+				}
+			],
+			"published": "2021-08-25T20:57:21Z",
+			"modified": "2021-08-18T20:24:24Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "libpulse-binding"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "2.6.0"
+					}
+				],
+				"fixed": [
+					"2.6.0"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

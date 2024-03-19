@@ -1,0 +1,65 @@
+{
+	"id": "GHSA-7mg7-m5c3-3hqj",
+	"advisories": [
+		{
+			"id": "GHSA-7mg7-m5c3-3hqj",
+			"title": "Data races in unicycle",
+			"description": "Affected versions of this crate unconditionally implemented `Send` & `Sync` for types `PinSlab<T>` & `Unordered<T, S>`. This allows sending non-Send types to other threads and concurrently accessing non-Sync types from multiple threads.\n\nThis can result in a data race & memory corruption when types that provide internal mutability without synchronization are contained within `PinSlab<T>` or `Unordered<T, S>` and accessed concurrently from multiple threads.\n\nThe flaw was corrected in commits 92f40b4 & 6a6c367 by adding trait bound `T: Send` to `Send` impls for `PinSlab<T>` & `Unordered<T, S>` and adding `T: Sync` to `Sync` impls for `PinSlab<T>` & `Unordered<T, S>`.\n",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "MODERATE"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/udoprog/unicycle/issues/8"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/udoprog/unicycle/commit/6a6c367a0c25f86f998fa315ea90c328f685b194"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/udoprog/unicycle/commit/92f40b4a2c671553dfa96feacff0265206c44ce5"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/udoprog/unicycle"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2020-0116.html"
+				}
+			],
+			"published": "2021-08-25T21:00:39Z",
+			"modified": "2021-08-24T17:47:15Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "unicycle"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.7.1"
+					}
+				],
+				"fixed": [
+					"0.7.1"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

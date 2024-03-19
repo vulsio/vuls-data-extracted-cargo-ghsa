@@ -1,0 +1,86 @@
+{
+	"id": "GHSA-xr9w-x6gw-c9mj",
+	"advisories": [
+		{
+			"id": "GHSA-xr9w-x6gw-c9mj",
+			"title": "Duplicate advisory: Deno vulnerable to Regular Expression Denial of Service",
+			"description": "## Duplicate Advisory\nThis advisory has been withdrawn because it is a duplicate of [GHSA-jc97-h3h9-7xh6](https://github.com/advisories/GHSA-jc97-h3h9-7xh6). This link is maintained to preserve external references.\n\n## Original Description\nVersions of the package deno before 1.31.0 are vulnerable to Regular Expression Denial of Service (ReDoS) due to the upgradeWebSocket function, which contains regexes in the form of /s*,s*/, used for splitting the Connection/Upgrade header. A specially crafted Connection/Upgrade header can be used to significantly slow down a web socket server. This issue has been patched in version 1.31.0.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"base_score": 7.5,
+						"base_severity": "HIGH",
+						"temporal_score": 7.5,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7.5,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2023-26103"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/denoland/deno/pull/17722"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/denoland/deno/commit/cf06a7c7e672880e1b38598fe445e2c50b4a9d06"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/denoland/deno"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/denoland/deno/blob/2b247be517d789a37e532849e2e40b724af0918f/ext/http/01_http.js%23L395-L409"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/denoland/deno/releases/tag/v1.31.0"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://security.snyk.io/vuln/SNYK-RUST-DENO-3315970"
+				}
+			],
+			"published": "2023-02-25T06:30:21Z",
+			"modified": "2023-04-03T17:18:44Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "deno"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "1.31.0"
+					}
+				],
+				"fixed": [
+					"1.31.0"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

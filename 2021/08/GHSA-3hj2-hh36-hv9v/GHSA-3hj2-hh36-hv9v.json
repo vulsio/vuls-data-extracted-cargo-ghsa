@@ -1,0 +1,79 @@
+{
+	"id": "GHSA-3hj2-hh36-hv9v",
+	"advisories": [
+		{
+			"id": "GHSA-3hj2-hh36-hv9v",
+			"title": "Data race in va-ts",
+			"description": "In the affected versions of this crate, Demuxer<T> unconditionally implemented Send with no trait bounds on T. This allows sending a non-Send type T across thread boundaries, which can cause undefined behavior like unlocking a mutex from a thread that didn't lock the mutex, or memory corruption from data race. The flaw was corrected in commit `0562cbf` by adding a T: Send bound to the Send impl for Demuxer<T>.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"base_score": 5.9,
+						"base_severity": "MEDIUM",
+						"temporal_score": 5.9,
+						"temporal_severity": "MEDIUM",
+						"environmental_score": 5.9,
+						"environmental_severity": "MEDIUM"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "MODERATE"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2020-36220"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/video-audio/va-ts/issues/4"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/video-audio/va-ts"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2020-0114.html"
+				}
+			],
+			"published": "2021-08-25T20:51:56Z",
+			"modified": "2023-06-13T22:11:43Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2020-36220"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "va-ts"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.0.4"
+					}
+				],
+				"fixed": [
+					"0.0.4"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

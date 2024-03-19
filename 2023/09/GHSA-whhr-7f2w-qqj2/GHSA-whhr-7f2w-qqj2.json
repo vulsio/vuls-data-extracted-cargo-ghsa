@@ -1,0 +1,102 @@
+{
+	"id": "GHSA-whhr-7f2w-qqj2",
+	"advisories": [
+		{
+			"id": "GHSA-whhr-7f2w-qqj2",
+			"title": "phonenumber panics on parsing crafted RFC3966 inputs",
+			"description": "### Impact\nThe phonenumber parsing code may panic due to a panic-guarded out-of-bounds access on the phonenumber string.\n\nIn a typical deployment of `rust-phonenumber`, this may get triggered by feeding a maliciously crafted phonenumber over the network, specifically the string `.;phone-context=`.\n\n### Patches\nPatches will be published as version `0.3.3+8.13.9` and backported as `0.2.5+8.11.3`.\n\n### Workarounds\nn.a.\n\n### References\nn.a.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"base_score": 7.5,
+						"base_severity": "HIGH",
+						"temporal_score": 7.5,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7.5,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/whisperfish/rust-phonenumber/security/advisories/GHSA-whhr-7f2w-qqj2"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2023-42444"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/whisperfish/rust-phonenumber/commit/2dd44be94539c051b4dee55d1d9d349bd7bedde6"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/whisperfish/rust-phonenumber/commit/bea8e732b9cada617ede5cf51663dba183747f71"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/whisperfish/rust-phonenumber"
+				}
+			],
+			"published": "2023-09-21T17:10:57Z",
+			"modified": "2023-10-06T20:00:20Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2023-42444"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "phonenumber"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.2.5"
+					}
+				],
+				"fixed": [
+					"0.2.5"
+				]
+			}
+		},
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "phonenumber"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.3.3",
+						"ge": "0.3.0"
+					}
+				],
+				"fixed": [
+					"0.3.3"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

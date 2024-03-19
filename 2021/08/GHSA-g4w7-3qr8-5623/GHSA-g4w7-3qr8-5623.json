@@ -1,0 +1,83 @@
+{
+	"id": "GHSA-g4w7-3qr8-5623",
+	"advisories": [
+		{
+			"id": "GHSA-g4w7-3qr8-5623",
+			"title": "Improper type usage in rusqlite",
+			"description": "An issue was discovered in the rusqlite crate before 0.23.0 for Rust. Memory safety can be violated via the repr(Rust) type.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"base_score": 9.8,
+						"base_severity": "CRITICAL",
+						"temporal_score": 9.8,
+						"temporal_severity": "CRITICAL",
+						"environmental_score": 9.8,
+						"environmental_severity": "CRITICAL"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "CRITICAL"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2020-35872"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/rusqlite/rusqlite/commit/71b2f5187b0cbace3f8b6ff53432ff2ca0defcf0"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/rusqlite/rusqlite"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/rusqlite/rusqlite/releases/tag/0.23.0"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2020-0014.html"
+				}
+			],
+			"published": "2021-08-25T20:47:01Z",
+			"modified": "2021-08-19T21:18:44Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2020-35872"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "rusqlite"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.23.0"
+					}
+				],
+				"fixed": [
+					"0.23.0"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

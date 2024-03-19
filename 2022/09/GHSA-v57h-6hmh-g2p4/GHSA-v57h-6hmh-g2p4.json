@@ -1,0 +1,76 @@
+{
+	"id": "GHSA-v57h-6hmh-g2p4",
+	"advisories": [
+		{
+			"id": "GHSA-v57h-6hmh-g2p4",
+			"title": "Weight not properly refunded after EVM execution",
+			"description": "### Impact\n\nPreviously, the worst case weight was always accounted as the block weight for all cases. In case of large EVM gas refunds, this can lead to block spamming attacks -- the adversary can construct blocks with transactions that have large amount of refunds or unused gases with reverts, and as a result inflate up the chain gas prices. This issue is fixed by properly refund unused weights after each EVM execution.\n\nThe impact of this issue is limited in that the spamming attack would still be costly for any adversary, and it has no ability to alter any chain state. \n\n### Patches\n\nThe issue is fixed in https://github.com/paritytech/frontier/pull/851\n\n### Workarounds\n\nNone.\n\n### References\n_Are there any links users can visit to find out more?_\n\n### For more information\nIf you have any questions or comments about this advisory:\n* Open an issue in [Frontier repo](https://github.com/paritytech/frontier/issues)\n* Email [Wei](mailto:wei@that.world)\n",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+						"base_score": 5.3,
+						"base_severity": "MEDIUM",
+						"temporal_score": 5.3,
+						"temporal_severity": "MEDIUM",
+						"environmental_score": 5.3,
+						"environmental_severity": "MEDIUM"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "MODERATE"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/paritytech/frontier/security/advisories/GHSA-v57h-6hmh-g2p4"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2022-39242"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/paritytech/frontier/pull/851"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/paritytech/frontier"
+				}
+			],
+			"published": "2022-09-23T22:07:10Z",
+			"modified": "2022-09-23T23:39:17Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2022-39242"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "frontier"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"le": "0.1.0"
+					}
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

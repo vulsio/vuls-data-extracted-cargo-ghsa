@@ -1,0 +1,52 @@
+{
+	"id": "GHSA-74w3-p89x-ffgh",
+	"advisories": [
+		{
+			"id": "GHSA-74w3-p89x-ffgh",
+			"title": "ansi_term is Unmaintained",
+			"description": "## Withdrawn Advisory\nThis advisory has been withdrawn because it does not discuss a particular vulnerability in the code of `ansi_term`.\n\n## Original Description\nThe maintainer has adviced this crate is deprecated and will not receive any maintenance.\n\nThe crate does not seem to have much dependencies and may or may not be ok to use as-is.\n\nLast release seems to have been three years ago.\n",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "LOW"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/ogham/rust-ansi-term/issues/72"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/ogham/rust-ansi-term"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2021-0139.html"
+				}
+			],
+			"published": "2022-09-16T21:03:19Z",
+			"modified": "2022-09-19T14:25:17Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "ansi_term"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{}
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

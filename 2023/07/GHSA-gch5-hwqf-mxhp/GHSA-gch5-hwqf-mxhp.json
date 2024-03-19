@@ -1,0 +1,57 @@
+{
+	"id": "GHSA-gch5-hwqf-mxhp",
+	"advisories": [
+		{
+			"id": "GHSA-gch5-hwqf-mxhp",
+			"title": "Unsoundness in `intern` methods on `intaglio` symbol interners",
+			"description": "Affected versions of this crate have a stacked borrows violation when creating\nreferences to interned contents. All interner types are affected.\n\nThe flaw was corrected in version 1.9.0 by reordering move and borrowing\noperations and storing interned contents by raw pointer instead of as a `Box`.\n",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "LOW"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/artichoke/intaglio/pull/236"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/artichoke/intaglio"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2023-0048.html"
+				}
+			],
+			"published": "2023-07-27T19:29:41Z",
+			"modified": "2023-07-27T19:29:41Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "intaglio"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "1.9.0"
+					}
+				],
+				"fixed": [
+					"1.9.0"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

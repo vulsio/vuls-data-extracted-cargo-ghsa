@@ -1,0 +1,103 @@
+{
+	"id": "GHSA-5fhj-g3p3-pq9g",
+	"advisories": [
+		{
+			"id": "GHSA-5fhj-g3p3-pq9g",
+			"title": "Wasmtime vulnerable to Use After Free with `externref`s",
+			"description": "There is a bug in Wasmtime's code generator, Cranelift, where functions using reference types may be incorrectly missing metadata required for runtime garbage collection (GC). This means that if a GC happens at runtime then the collector will mistakenly think some Wasm stack frames do not have live references to garbage collected values and therefore reclaim and deallocate them. The function can then subsequently continue to use the values, leading later to use-after-free bugs. This bug was introduced in Cranelift's migration to the `regalloc2` register allocator in the Wasmtime 0.37.0 release on 2022-05-20. This bug has been patched and users should upgrade to Wasmtime version 0.38.2.\n\nMitigations for this issue can be achieved by doing one of:\n\n* Disabling the reference types proposal by passing `false` to [`wasmtime::Config::wasm_reference_types`](https://docs.rs/wasmtime/0.38.0/wasmtime/struct.Config.html#method.wasm_reference_types).\n* Downgrading to Wasmtime 0.36.0 or prior.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:L/A:L",
+						"base_score": 6.4,
+						"base_severity": "MEDIUM",
+						"temporal_score": 6.4,
+						"temporal_severity": "MEDIUM",
+						"environmental_score": 6.4,
+						"environmental_severity": "MEDIUM"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "MODERATE"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/bytecodealliance/wasmtime/security/advisories/GHSA-5fhj-g3p3-pq9g"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2022-31146"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/bytecodealliance/wasmtime/commit/2ba4bce5cc719e5a74e571a534424614e62ecc41"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/WebAssembly/reference-types"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/bytecodealliance/wasmtime"
+				}
+			],
+			"published": "2022-07-20T22:47:13Z",
+			"modified": "2022-08-05T13:56:03Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2022-31146"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "wasmtime"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.38.2",
+						"ge": "0.37.0"
+					}
+				],
+				"fixed": [
+					"0.38.2"
+				]
+			}
+		},
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "cranelift-codegen"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.85.2",
+						"ge": "0.84.0"
+					}
+				],
+				"fixed": [
+					"0.85.2"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

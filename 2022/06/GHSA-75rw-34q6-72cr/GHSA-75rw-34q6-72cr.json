@@ -1,0 +1,88 @@
+{
+	"id": "GHSA-75rw-34q6-72cr",
+	"advisories": [
+		{
+			"id": "GHSA-75rw-34q6-72cr",
+			"title": "Signature forgery in Biscuit",
+			"description": "### Impact\n\nThe paper [Cryptanalysis of Aggregate Γ-Signature and Practical Countermeasures in Application to Bitcoin](https://eprint.iacr.org/2020/1484) defines a way to forge valid Γ-signatures, an algorithm that is used in the Biscuit specification version 1.\nIt would allow an attacker to create a token with any access level.\n\nAs Biscuit v1 was still an early version and not broadly deployed, we were able to contact all known users of Biscuit v1 and help them migrate to Biscuit v2.\nWe are not aware of any active exploitation of this vulnerability.\n\n### Patches\n\nThe version 2 of the specification mandates a different algorithm than gamma signatures and as such is not affected by this vulnerability. The Biscuit implementations in Rust, Haskell, Go, Java and Javascript all have published versions following the v2 specification.\n\n### Workarounds\n\nThere is no known workaround, any use of Biscuit v1 should be migrated to v2.\n\n### References\n[Cryptanalysis of Aggregate Γ-Signature and Practical Countermeasures in Application to Bitcoin](https://eprint.iacr.org/2020/1484)\n\n### For more information\nIf you have any questions or comments about this advisory:\n* Open an issue in [biscuit-auth/biscuit](https://github.com/biscuit-auth/biscuit)\n* Ask questions on [Matrix](https://matrix.to/#/#biscuit-auth:matrix.org)\n",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"base_score": 9.8,
+						"base_severity": "CRITICAL",
+						"temporal_score": 9.8,
+						"temporal_severity": "CRITICAL",
+						"environmental_score": 9.8,
+						"environmental_severity": "CRITICAL"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "CRITICAL"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/biscuit-auth/biscuit/security/advisories/GHSA-75rw-34q6-72cr"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2022-31053"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://eprint.iacr.org/2020/1484"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/advisories/GHSA-75rw-34q6-72cr"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/biscuit-auth/biscuit"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://pkg.go.dev/vuln/GO-2022-0564"
+				}
+			],
+			"published": "2022-06-17T00:38:03Z",
+			"modified": "2023-03-07T00:39:38Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2022-31053"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "biscuit-auth"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "2.0.0",
+						"ge": "1.0.0"
+					}
+				],
+				"fixed": [
+					"2.0.0"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

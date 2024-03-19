@@ -1,0 +1,80 @@
+{
+	"id": "GHSA-m57c-4vvx-gjgq",
+	"advisories": [
+		{
+			"id": "GHSA-m57c-4vvx-gjgq",
+			"title": "Format string vulnerabilities in pancurses",
+			"description": "An issue was discovered in the pancurses crate through 0.16.1 for Rust. printw and mvprintw have format string vulnerabilities.",
+			"severity": [
+				{
+					"type": "cvss_v30",
+					"source": "github.com/advisories",
+					"cvss_v30": {
+						"vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+						"base_score": 7.5,
+						"base_severity": "HIGH",
+						"temporal_score": 7.5,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7.5,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2019-15546"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/RustSec/advisory-db/issues/106"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/ihalila/pancurses/issues/66"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/ihalila/pancurses"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2019-0005.html"
+				}
+			],
+			"published": "2021-08-25T20:58:27Z",
+			"modified": "2021-08-18T17:45:17Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2019-15546"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "pancurses"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"le": "0.16.1"
+					}
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

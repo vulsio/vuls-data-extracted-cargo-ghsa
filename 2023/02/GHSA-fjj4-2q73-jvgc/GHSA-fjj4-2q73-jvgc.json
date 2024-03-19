@@ -1,0 +1,50 @@
+{
+	"id": "GHSA-fjj4-2q73-jvgc",
+	"advisories": [
+		{
+			"id": "GHSA-fjj4-2q73-jvgc",
+			"title": "Nervos CKB calculation of program load cycles may be missed when executing in resume mode",
+			"description": "### Impact\nThe calculation of program load cycles may be missed when executing in resume mode. Since the script execution order is now determined, this issue does not cause network splitting.\n\n\n",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "LOW"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/nervosnetwork/ckb/security/advisories/GHSA-fjj4-2q73-jvgc"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/nervosnetwork/ckb"
+				}
+			],
+			"published": "2023-02-08T18:15:28Z",
+			"modified": "2023-02-08T18:15:28Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "ckb"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"ge": "0.100.0"
+					}
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

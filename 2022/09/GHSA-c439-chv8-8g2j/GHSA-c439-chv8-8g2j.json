@@ -1,0 +1,65 @@
+{
+	"id": "GHSA-c439-chv8-8g2j",
+	"advisories": [
+		{
+			"id": "GHSA-c439-chv8-8g2j",
+			"title": "`os_socketaddr` invalidly assumes the memory layout of std::net::SocketAddr",
+			"description": "The [`os_socketaddr`](https://crates.io/crates/os_socketaddr) crate has assumed `std::net::SocketAddrV4` and `std::net::SocketAddrV6` have the same memory layout as the system C representation `sockaddr`. It has simply casted the pointers to convert the socket addresses to the system representation.\n\nThese layout were [changed into idiomatic rust types](https://github.com/rust-lang/rust/pull/78802) in nightly `std`. Starting from rustc 1.64 the affected versions of this crate will have undefined behaviour.\n\n",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/a-ba/os_socketaddr/issues/3"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/rust-lang/rust/pull/78802"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/a-ba/os_socketaddr/commit/1bc7f71d40de069727993a18fdada33eb0b4c94f"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/a-ba/os_socketaddr"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2022-0052.html"
+				}
+			],
+			"published": "2022-09-02T22:29:41Z",
+			"modified": "2022-09-02T22:29:41Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "os_socketaddr"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.2.2"
+					}
+				],
+				"fixed": [
+					"0.2.2"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

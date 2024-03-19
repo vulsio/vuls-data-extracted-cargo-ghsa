@@ -1,0 +1,80 @@
+{
+	"id": "GHSA-mjvm-mhgc-q4gp",
+	"advisories": [
+		{
+			"id": "GHSA-mjvm-mhgc-q4gp",
+			"title": "Incorrect parsing of EVM reversion exit reason in RPC",
+			"description": "### Impact\n\nA low severity security issue was discovered affecting parsing of the RPC result of the exit reason in case of EVM reversion. In release build, this would cause the exit reason being incorrectly parsed and returned by RPC. In debug build, this would cause an overflow panic.\n\nNo action is needed unless you have a bridge node that needs to distinguish different reversion exit reasons and you used RPC for this.\n\n### Patches\n\nThe issue is patched in https://github.com/paritytech/frontier/pull/820\n\n### Workarounds\n\nNone.\n\n### References\n\nPR https://github.com/paritytech/frontier/pull/820\n\n### For more information\n\nIf you have any questions or comments about this advisory:\n* Email [Wei Tang](mailto:wei@that.world)",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+						"base_score": 6.5,
+						"base_severity": "MEDIUM",
+						"temporal_score": 6.5,
+						"temporal_severity": "MEDIUM",
+						"environmental_score": 6.5,
+						"environmental_severity": "MEDIUM"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "MODERATE"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/paritytech/frontier/security/advisories/GHSA-mjvm-mhgc-q4gp"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2022-36008"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/paritytech/frontier/pull/820"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/paritytech/frontier/commit/fff8cc43b7756ce3979a38fc473f38e6e24ac451"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/paritytech/frontier"
+				}
+			],
+			"published": "2022-08-18T19:18:25Z",
+			"modified": "2022-08-26T19:23:16Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2022-36008"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "frontier"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"le": "0.1.0"
+					}
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

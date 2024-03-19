@@ -1,0 +1,61 @@
+{
+	"id": "GHSA-82hm-vh7g-hrh9",
+	"advisories": [
+		{
+			"id": "GHSA-82hm-vh7g-hrh9",
+			"title": "Partial read is incorrect in molecule",
+			"description": "### Impact\n\nAnyone who uses `total_size(..)` function to partial read the length of any `FixVec` will get an incorrect result, due to an incorrect implementation. This has been resolved in the 0.7.2 release.\n\n### Workarounds\n\nIf you already have the whole `FixVec` `A`, you can use `A.as_slice().len()` to get the total size of the `FixVec`.\n\n### For more information\n\nIf you have any questions or comments about this advisory:\n\n- [Open an issue to ask use directly](https://github.com/nervosnetwork/molecule/issues/new).",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "MODERATE"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/nervosnetwork/molecule/security/advisories/GHSA-82hm-vh7g-hrh9"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/nervosnetwork/molecule/pull/49"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/nervosnetwork/molecule"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2021-0103.html"
+				}
+			],
+			"published": "2021-08-25T21:01:25Z",
+			"modified": "2021-09-09T17:55:10Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "molecule"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.7.2"
+					}
+				],
+				"fixed": [
+					"0.7.2"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

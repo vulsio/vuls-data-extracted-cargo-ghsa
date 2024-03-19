@@ -1,0 +1,84 @@
+{
+	"id": "GHSA-2vx6-fcw6-hpr6",
+	"advisories": [
+		{
+			"id": "GHSA-2vx6-fcw6-hpr6",
+			"title": "Reference counting error in pyo3",
+			"description": "An issue was discovered in the pyo3 crate before 0.12.4 for Rust. There is a reference-counting error and use-after-free in From<Py<T>>.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+						"base_score": 5.5,
+						"base_severity": "MEDIUM",
+						"temporal_score": 5.5,
+						"temporal_severity": "MEDIUM",
+						"environmental_score": 5.5,
+						"environmental_severity": "MEDIUM"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "MODERATE"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2020-35917"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/PyO3/pyo3/pull/1297"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/PyO3/pyo3/commit/8f81f595dd770b586c7ca7195b42004a6c976eb9"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/PyO3/pyo3"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2020-0074.html"
+				}
+			],
+			"published": "2021-08-25T20:49:52Z",
+			"modified": "2021-08-19T20:50:20Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2020-35917"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "pyo3"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.12.4",
+						"ge": "0.12.0"
+					}
+				],
+				"fixed": [
+					"0.12.4"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

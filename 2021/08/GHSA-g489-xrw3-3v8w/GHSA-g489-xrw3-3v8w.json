@@ -1,0 +1,72 @@
+{
+	"id": "GHSA-g489-xrw3-3v8w",
+	"advisories": [
+		{
+			"id": "GHSA-g489-xrw3-3v8w",
+			"title": "Data races in aovec",
+			"description": "An issue was discovered in the aovec crate through 2020-12-10 for Rust. Because Aovec<T> does not have bounds on its Send trait or Sync trait, a data race and memory corruption can occur.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+						"base_score": 7,
+						"base_severity": "HIGH",
+						"temporal_score": 7,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2020-36207"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/krl/aovec"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2020-0099.html"
+				}
+			],
+			"published": "2021-08-25T20:50:46Z",
+			"modified": "2021-08-19T18:51:25Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2020-36207"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "aovec"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"le": "1.1.0"
+					}
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

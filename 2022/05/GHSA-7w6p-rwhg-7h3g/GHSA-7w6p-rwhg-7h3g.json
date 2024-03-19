@@ -1,0 +1,75 @@
+{
+	"id": "GHSA-7w6p-rwhg-7h3g",
+	"advisories": [
+		{
+			"id": "GHSA-7w6p-rwhg-7h3g",
+			"title": "Grin Insufficient Validation",
+			"description": "Grin through 2.1.1 has Insufficient Validation.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"base_score": 7.5,
+						"base_severity": "HIGH",
+						"temporal_score": 7.5,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7.5,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2020-6638"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/mimblewimble/grin-security/blob/master/CVEs/CVE-2020-6638.md"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/mimblewimble/grin/compare/v2.1.1...v3.0.0"
+				}
+			],
+			"published": "2022-05-24T17:07:02Z",
+			"modified": "2024-02-01T21:24:14Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2020-6638"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "grin"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "3.0.0"
+					}
+				],
+				"fixed": [
+					"3.0.0"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

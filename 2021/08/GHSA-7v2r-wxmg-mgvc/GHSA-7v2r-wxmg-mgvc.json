@@ -1,0 +1,95 @@
+{
+	"id": "GHSA-7v2r-wxmg-mgvc",
+	"advisories": [
+		{
+			"id": "GHSA-7v2r-wxmg-mgvc",
+			"title": "HTTP Request smuggling in tiny_http",
+			"description": "HTTP pipelining issues and request smuggling attacks are possible due to incorrect Transfer encoding header parsing. It is possible conduct HTTP request smuggling attacks (CL:TE/TE:TE) by sending invalid Transfer Encoding headers. By manipulating the HTTP response the attacker could poison a web-cache, perform an XSS attack, or obtain sensitive information from requests other than their own.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N",
+						"base_score": 6.5,
+						"base_severity": "MEDIUM",
+						"temporal_score": 6.5,
+						"temporal_severity": "MEDIUM",
+						"environmental_score": 6.5,
+						"environmental_severity": "MEDIUM"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "MODERATE"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2020-35884"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/tiny-http/tiny-http/issues/173"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/tiny-http/tiny-http/pull/190"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/tiny-http/tiny-http/commit/623b87397a569729c4bcabae747823c5668cce94"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/tiny-http/tiny-http"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/M3JDNRE5RXJOWZZZF5QSCG4GUCSLTHF2"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/VO6SRTCEPEYO2OX647I3H5XUWLFDRDWL"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2020-0031.html"
+				}
+			],
+			"published": "2021-08-25T20:48:56Z",
+			"modified": "2023-06-13T21:49:09Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2020-35884"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "tiny_http"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.8.0"
+					}
+				],
+				"fixed": [
+					"0.8.0"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

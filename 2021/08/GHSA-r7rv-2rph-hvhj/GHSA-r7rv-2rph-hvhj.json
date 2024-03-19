@@ -1,0 +1,79 @@
+{
+	"id": "GHSA-r7rv-2rph-hvhj",
+	"advisories": [
+		{
+			"id": "GHSA-r7rv-2rph-hvhj",
+			"title": "Improper synchronization in buttplug",
+			"description": "An issue was discovered in the buttplug crate before 1.0.4 for Rust. ButtplugFutureStateShared does not properly consider (!Send|!Sync) objects, leading to a data race.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"base_score": 5.9,
+						"base_severity": "MEDIUM",
+						"temporal_score": 5.9,
+						"temporal_severity": "MEDIUM",
+						"environmental_score": 5.9,
+						"environmental_severity": "MEDIUM"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "MODERATE"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2020-36218"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/buttplugio/buttplug-rs/issues/225"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/buttplugio/buttplug-rs"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2020-0112.html"
+				}
+			],
+			"published": "2021-08-25T20:51:45Z",
+			"modified": "2021-08-19T18:48:19Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2020-36218"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "buttplug"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "1.0.4"
+					}
+				],
+				"fixed": [
+					"1.0.4"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

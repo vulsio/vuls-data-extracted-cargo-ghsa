@@ -1,0 +1,75 @@
+{
+	"id": "GHSA-369h-pjr2-6wrh",
+	"advisories": [
+		{
+			"id": "GHSA-369h-pjr2-6wrh",
+			"title": "Uncontrolled recursion in trust-dns-proto",
+			"description": "There's a stack overflow leading to a crash when Trust-DNS's parses a malicious DNS packet. Affected versions of this crate did not properly handle parsing of DNS message compression (RFC1035 section 4.1.4). The parser could be tricked into infinite loop when a compression offset pointed back to the same domain name to be parsed. This allows an attacker to craft a malicious DNS packet which when consumed with Trust-DNS could cause stack overflow and crash the affected software.",
+			"severity": [
+				{
+					"type": "cvss_v30",
+					"source": "github.com/advisories",
+					"cvss_v30": {
+						"vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"base_score": 7.5,
+						"base_severity": "HIGH",
+						"temporal_score": 7.5,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7.5,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2018-20994"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/bluejekyll/trust-dns"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2018-0007.html"
+				}
+			],
+			"published": "2021-08-25T20:43:16Z",
+			"modified": "2023-06-13T22:25:06Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2018-20994"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "trust-dns-proto"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.4.3"
+					}
+				],
+				"fixed": [
+					"0.4.3"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

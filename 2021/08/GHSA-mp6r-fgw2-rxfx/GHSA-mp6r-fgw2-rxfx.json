@@ -1,0 +1,83 @@
+{
+	"id": "GHSA-mp6r-fgw2-rxfx",
+	"advisories": [
+		{
+			"id": "GHSA-mp6r-fgw2-rxfx",
+			"title": "Arbitrary return types in xcb",
+			"description": "The function xcb::xproto::GetPropertyReply::value() returns a slice of type T where T is an unconstrained type parameter. The raw bytes received from the X11 server are interpreted as the requested type. The users of the xcb crate are advised to only call this function with the intended types. These are u8, u16, and u32.\n\nThis issue is tracked here: https://github.com/rust-x-bindings/rust-xcb/issues/95",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"base_score": 9.8,
+						"base_severity": "CRITICAL",
+						"temporal_score": 9.8,
+						"temporal_severity": "CRITICAL",
+						"environmental_score": 9.8,
+						"environmental_severity": "CRITICAL"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "CRITICAL"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2021-26956"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/RustSec/advisory-db/issues/653"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/rust-x-bindings/rust-xcb/issues/95"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/rtbo/rust-xcb"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2021-0019.html"
+				}
+			],
+			"published": "2021-08-25T20:53:27Z",
+			"modified": "2023-06-13T22:28:51Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2021-26956"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "xcb"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "1.0.0"
+					}
+				],
+				"fixed": [
+					"1.0.0"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

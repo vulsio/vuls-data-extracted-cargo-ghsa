@@ -1,0 +1,57 @@
+{
+	"id": "GHSA-7fw6-6mfj-g3q2",
+	"advisories": [
+		{
+			"id": "GHSA-7fw6-6mfj-g3q2",
+			"title": "ckb: Transaction header_deps validation issue (network forking)",
+			"description": "### Impact\nfn `HeaderChecker#check_valid` skipped main chain checking after this PR: https://github.com/nervosnetwork/ckb/pull/1646/files#diff-c4e017b67c1b3005ca0c446a9b0879571aa36a858b1f7ddd1b9328a884e3214bR171-R176\n\nIt will cause network forking if one transaction is using a forked block header which is not exists in local node's storage.\n\n### Patches\n\n0.101.1 and later versions",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "CRITICAL"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/nervosnetwork/ckb/security/advisories/GHSA-7fw6-6mfj-g3q2"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/nervosnetwork/ckb/pull/1646/files#diff-c4e017b67c1b3005ca0c446a9b0879571aa36a858b1f7ddd1b9328a884e3214bR171-R176"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/nervosnetwork/ckb"
+				}
+			],
+			"published": "2022-11-02T18:14:30Z",
+			"modified": "2022-11-02T18:14:30Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "ckb"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.101.1"
+					}
+				],
+				"fixed": [
+					"0.101.1"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

@@ -1,0 +1,77 @@
+{
+	"id": "GHSA-75cq-g75g-rxff",
+	"advisories": [
+		{
+			"id": "GHSA-75cq-g75g-rxff",
+			"title": "use-after-free vulnerability in Rust array-queue",
+			"description": "An issue was discovered in the array-queue crate through 2020-09-26 for Rust. A pop_back() call may lead to a use-after-free.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N",
+						"base_score": 5.5,
+						"base_severity": "MEDIUM",
+						"temporal_score": 5.5,
+						"temporal_severity": "MEDIUM",
+						"environmental_score": 5.5,
+						"environmental_severity": "MEDIUM"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "MODERATE"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2020-35900"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/raviqqe/array-queue/issues/2"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/raviqqe/array-queue"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2020-0047.html"
+				}
+			],
+			"published": "2021-08-25T21:00:43Z",
+			"modified": "2021-08-18T22:36:31Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2020-35900"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "array-queue"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"le": "0.3.3",
+						"ge": "0.3.0"
+					}
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

@@ -1,0 +1,58 @@
+{
+	"id": "GHSA-fc4h-xcf3-qj5f",
+	"advisories": [
+		{
+			"id": "GHSA-fc4h-xcf3-qj5f",
+			"title": "matrix-sdk 0.6.0 logs access tokens",
+			"description": "When sending Matrix requests using an affected version of `matrix-sdk` in an application that writes logs using `tracing-subscriber` (in a way that includes fields of tracing spans such as `tracing_subscriber`s default text output from the `fmt` module), these logs will contain the user's access token.\n",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "MODERATE"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/matrix-org/matrix-rust-sdk/issues/1110"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/matrix-org/matrix-rust-sdk"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2022-0062.html"
+				}
+			],
+			"published": "2022-10-25T20:22:19Z",
+			"modified": "2022-10-25T20:22:19Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "matrix-sdk"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.6.2",
+						"ge": "0.6.0"
+					}
+				],
+				"fixed": [
+					"0.6.2"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

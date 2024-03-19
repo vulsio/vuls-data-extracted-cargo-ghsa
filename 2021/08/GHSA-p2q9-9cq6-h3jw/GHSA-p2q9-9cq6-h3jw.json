@@ -1,0 +1,72 @@
+{
+	"id": "GHSA-p2q9-9cq6-h3jw",
+	"advisories": [
+		{
+			"id": "GHSA-p2q9-9cq6-h3jw",
+			"title": "Out of bounds read in Ozone",
+			"description": "An issue was discovered in the ozone crate through version 0.1.0 for Rust. Memory safety is violated because of out-of-bounds access.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"base_score": 9.8,
+						"base_severity": "CRITICAL",
+						"temporal_score": 9.8,
+						"temporal_severity": "CRITICAL",
+						"environmental_score": 9.8,
+						"environmental_severity": "CRITICAL"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "CRITICAL"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2020-35877"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/bqv/ozone"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2020-0022.html"
+				}
+			],
+			"published": "2021-08-25T20:47:46Z",
+			"modified": "2023-06-13T20:11:33Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2020-35877"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "ozone"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"le": "0.1.0"
+					}
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

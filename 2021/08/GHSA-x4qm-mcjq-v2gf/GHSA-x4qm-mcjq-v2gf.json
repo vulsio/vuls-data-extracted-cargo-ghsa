@@ -1,0 +1,87 @@
+{
+	"id": "GHSA-x4qm-mcjq-v2gf",
+	"advisories": [
+		{
+			"id": "GHSA-x4qm-mcjq-v2gf",
+			"title": "Overflow in prost-types",
+			"description": "Affected versions of this crate contained a bug in which untrusted input could cause an overflow and panic when converting a Timestamp to SystemTime. It is recommended to upgrade to prost-types v0.8 and switch the usage of From<Timestamp> for SystemTime to TryFrom<Timestamp> for SystemTime.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"base_score": 7.5,
+						"base_severity": "HIGH",
+						"temporal_score": 7.5,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7.5,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2021-38192"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/tokio-rs/prost/issues/438"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/tokio-rs/prost/pull/439"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/tokio-rs/prost/commit/59f2a7311dd6540696bfd0145f5281ce495f4385"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/tokio-rs/prost/tree/master/prost-types"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2021-0073.html"
+				}
+			],
+			"published": "2021-08-25T20:55:53Z",
+			"modified": "2023-06-13T20:26:47Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2021-38192"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "prost-types"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.8.0"
+					}
+				],
+				"fixed": [
+					"0.8.0"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

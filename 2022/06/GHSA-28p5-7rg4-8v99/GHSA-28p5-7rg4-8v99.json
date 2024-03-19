@@ -1,0 +1,54 @@
+{
+	"id": "GHSA-28p5-7rg4-8v99",
+	"advisories": [
+		{
+			"id": "GHSA-28p5-7rg4-8v99",
+			"title": "Reading on uninitialized buffer may cause UB ( `gfx_auxil::read_spirv()` )",
+			"description": "Affected versions of this crate passes an uninitialized buffer to a user-provided `Read` implementation.\nArbitrary `Read` implementations can read from the uninitialized buffer (memory exposure) and also can return incorrect number of bytes written to the buffer.\nReading from uninitialized memory produces undefined values that can quickly invoke undefined behavior.\n",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/gfx-rs/gfx/issues/3567"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/gfx-rs/gfx"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2021-0091.html"
+				}
+			],
+			"published": "2022-06-16T23:59:12Z",
+			"modified": "2023-06-13T17:33:19Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "gfx-auxil"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"le": "0.10.0"
+					}
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

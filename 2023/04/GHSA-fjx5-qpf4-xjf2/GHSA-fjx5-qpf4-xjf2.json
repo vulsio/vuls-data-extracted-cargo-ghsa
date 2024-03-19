@@ -1,0 +1,57 @@
+{
+	"id": "GHSA-fjx5-qpf4-xjf2",
+	"advisories": [
+		{
+			"id": "GHSA-fjx5-qpf4-xjf2",
+			"title": "Parsing borsh messages with ZST which are not-copy/clone is unsound",
+			"description": "Affected versions of borsh cause undefined behavior when zero-sized-types (ZST) are parsed and the Copy/Clone traits are not implemented/derived. For instance if 1000 instances of a ZST are deserialized, and the ZST is not copy (this can be achieved through a singleton), then accessing/writing to deserialized data will cause a segmentation fault.\n\nThere is currently no way for borsh to read data without also providing a Rust type. Therefore, if you are not using ZST for serialization, then you are not affected by this issue. \n",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "MODERATE"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/near/borsh-rs/issues/19"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/near/borsh-rs"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2023-0033.html"
+				}
+			],
+			"published": "2023-04-17T16:32:26Z",
+			"modified": "2023-04-17T16:32:26Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "borsh"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "1.0.0-alpha.1"
+					}
+				],
+				"fixed": [
+					"1.0.0-alpha.1"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

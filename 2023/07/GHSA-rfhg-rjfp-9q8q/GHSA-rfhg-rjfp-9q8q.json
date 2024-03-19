@@ -1,0 +1,57 @@
+{
+	"id": "GHSA-rfhg-rjfp-9q8q",
+	"advisories": [
+		{
+			"id": "GHSA-rfhg-rjfp-9q8q",
+			"title": "Potential denial of service after connection migration",
+			"description": "### Impact\nAn issue in s2n-quic results in the endpoint shutting down due to a combination of peer-initiated connection migration and duplicate new connection ID frames being received. No AWS services are affected by this issue, and customers of AWS services do not need to take action.\n\nImpacted versions: <=v1.24.0\n### Patches\nThe patch is included in v1.25.0.\n\n### Workarounds\nThere is no workaround. Applications using s2n-quic should upgrade their application to the most recent release of s2n-quic.\n\nIf you have any questions or comments about this advisory we ask that you contact AWS/Amazon Security via our vulnerability reporting page or directly via email to aws-security@amazon.com. Please do not create a public GitHub issue.",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "LOW"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/aws/s2n-quic/security/advisories/GHSA-rfhg-rjfp-9q8q"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/aws/s2n-quic/commit/73a814240c5db6fae261a6e4ab567b0b094a35db"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/aws/s2n-quic"
+				}
+			],
+			"published": "2023-07-24T22:43:05Z",
+			"modified": "2023-07-24T22:43:05Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "s2n-quic"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "1.25.0"
+					}
+				],
+				"fixed": [
+					"1.25.0"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

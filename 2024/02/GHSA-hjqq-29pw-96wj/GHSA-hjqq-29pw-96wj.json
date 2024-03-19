@@ -1,0 +1,77 @@
+{
+	"id": "GHSA-hjqq-29pw-96wj",
+	"advisories": [
+		{
+			"id": "GHSA-hjqq-29pw-96wj",
+			"title": "Nervos CKB node panics when processing a block which parent timestamp is too new",
+			"description": "### Impact\n\nAdversary can initiate DOS attack by broadcasting two consecutive blocks with timestamps in the future. \n\n### Patches\n\nPlease upgrade to v0.34.1",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/nervosnetwork/ckb/security/advisories/GHSA-hjqq-29pw-96wj"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/nervosnetwork/ckb/commit/ae3c791068f2f76c67cd5483501f09de3fd8cc0b"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/nervosnetwork/ckb/commit/c6725bb0659b6639f384d699f815117d76107388"
+				}
+			],
+			"published": "2024-02-02T22:23:11Z",
+			"modified": "2024-02-02T22:23:11Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "ckb"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.33.2",
+						"ge": "0.33.0"
+					}
+				],
+				"fixed": [
+					"0.33.2"
+				]
+			}
+		},
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "ckb"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.34.1",
+						"ge": "0.34.0"
+					}
+				],
+				"fixed": [
+					"0.34.1"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

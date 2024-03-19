@@ -1,0 +1,109 @@
+{
+	"id": "GHSA-g4xg-fxmg-vcg5",
+	"advisories": [
+		{
+			"id": "GHSA-g4xg-fxmg-vcg5",
+			"title": "OS command injection in ripgrep",
+			"description": "ripgrep before 13 on Windows allows attackers to trigger execution of arbitrary programs from the current working directory via the -z/--search-zip or --pre flag.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"base_score": 9.8,
+						"base_severity": "CRITICAL",
+						"temporal_score": 9.8,
+						"temporal_severity": "CRITICAL",
+						"environmental_score": 9.8,
+						"environmental_severity": "CRITICAL"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "CRITICAL"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2021-3013"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/BurntSushi/ripgrep/issues/1773"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/BurntSushi/ripgrep"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/BurntSushi/ripgrep/blob/e48a17e1891e1ea9dd06ba0e48d5fb140ca7c0c4/CHANGELOG.md"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/BurntSushi/ripgrep/blob/master/CHANGELOG.md"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/BurntSushi/ripgrep/blob/master/CHANGELOG.md#1300-2021-06-12"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2021-0071.html"
+				}
+			],
+			"published": "2021-08-05T19:31:55Z",
+			"modified": "2021-09-07T21:16:08Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2021-3013"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "ripgrep"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "13.0.0"
+					}
+				],
+				"fixed": [
+					"13.0.0"
+				]
+			}
+		},
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "grep-cli"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.1.6"
+					}
+				],
+				"fixed": [
+					"0.1.6"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

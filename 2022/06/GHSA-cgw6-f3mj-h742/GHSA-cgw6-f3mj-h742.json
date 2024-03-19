@@ -1,0 +1,57 @@
+{
+	"id": "GHSA-cgw6-f3mj-h742",
+	"advisories": [
+		{
+			"id": "GHSA-cgw6-f3mj-h742",
+			"title": "RustEmbed generated `get` method allows for directory traversal when reading files from disk",
+			"description": "When running in debug mode and the `debug-embed` (off by default) feature is\nnot enabled, the generated `get` method does not check that the input path is\na child of the folder given. \n\nThis allows attackers to read arbitrary files in the file system if they have\ncontrol over the filename given. The following code will print the contents of\nyour `/etc/passwd` if adjusted with a correct number of `../`s depending on\nwhere it is run from.\n\n```rust\n#[derive(rust_embed::RustEmbed)]\n#[folder = \"src/\"]\npub struct Asset;\n\nfn main() {\n    let d = Asset::get(\"../../../etc/passwd\").unwrap().data;\n    println!(\"{}\", String::from_utf8_lossy(&d));\n}\n```\n\nThe flaw was corrected by canonicalizing the input filename and ensuring that\nit starts with the canonicalized folder path.\n",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "MODERATE"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/pyros2097/rust-embed/issues/159"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/pyros2097/rust-embed"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2021-0126.html"
+				}
+			],
+			"published": "2022-06-17T00:18:08Z",
+			"modified": "2022-06-17T00:18:08Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "rust-embed"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "6.3.0"
+					}
+				],
+				"fixed": [
+					"6.3.0"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

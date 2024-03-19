@@ -1,0 +1,84 @@
+{
+	"id": "GHSA-9qvw-46gf-4fv8",
+	"advisories": [
+		{
+			"id": "GHSA-9qvw-46gf-4fv8",
+			"title": "Use After Free in tremor-script",
+			"description": "An issue was discovered in the tremor-script crate before 0.11.6 for Rust. A merge operation may result in a use-after-free.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"base_score": 7.5,
+						"base_severity": "HIGH",
+						"temporal_score": 7.5,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7.5,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2021-45702"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/tremor-rs/tremor-runtime/pull/1217"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/tremor-rs/tremor-runtime/commit/1a2efcdbe68e5e7fd0a05836ac32d2cde78a0b2e"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://raw.githubusercontent.com/rustsec/advisory-db/main/crates/tremor-script/RUSTSEC-2021-0111.md"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2021-0111.html"
+				}
+			],
+			"published": "2022-01-06T22:09:07Z",
+			"modified": "2022-01-07T17:41:11Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2021-45702"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "tremor-script"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.11.6",
+						"ge": "0.7.2"
+					}
+				],
+				"fixed": [
+					"0.11.6"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

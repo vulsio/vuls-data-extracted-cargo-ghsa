@@ -1,0 +1,88 @@
+{
+	"id": "GHSA-r344-xw3p-2frj",
+	"advisories": [
+		{
+			"id": "GHSA-r344-xw3p-2frj",
+			"title": "Apollo Router vulnerable to Improper Check or Handling of Exceptional Conditions",
+			"description": "### Impact\nThe Apollo Router is a configurable, high-performance graph router written in Rust to run a federated supergraph that uses Apollo Federation. Affected versions are subject to a Denial-of-Service (DoS) type vulnerability which causes the Router to panic and terminate when a multi-part response is sent. When users send queries to the router that uses the `@defer` or Subscriptions, the Router will panic.\n \nTo be vulnerable, users of Router must have a coprocessor with `coprocessor.supergraph.response` configured in their `router.yaml` and also to support either `@defer` or Subscriptions.  \n\n### Patches\nRouter version 1.33.0 has a fix for this vulnerability. https://github.com/apollographql/router/pull/4014 fixes the issue.  \n\n### Workarounds\nFor affected versions, avoid using the coprocessor supergraph response:\n```yml\n# do not use this stage in your coprocessor configuration\ncoprocessor:\n  supergraph:\n    response:\n``` \n\nOr you can disable defer and subscriptions support:\n```yml\n# disable defer and subscriptions:\nsupergraph:\n  defer_support: false # enabled by default\nsubscription:\n  enabled: false # disabled by default\n```\nand continue to use the coprocessor supergraph response.\n### References\nhttps://github.com/apollographql/router/issues/4013\n",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"base_score": 7.5,
+						"base_severity": "HIGH",
+						"temporal_score": 7.5,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7.5,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/apollographql/router/security/advisories/GHSA-r344-xw3p-2frj"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2023-45812"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/apollographql/router/issues/4013"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/apollographql/router/pull/4014"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/apollographql/router/commit/b917b8c117b46a2d508428c0856f4927dfcfc341"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/apollographql/router"
+				}
+			],
+			"published": "2023-10-19T16:08:10Z",
+			"modified": "2023-10-19T16:08:10Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2023-45812"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "apollo-router"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "1.33.0",
+						"ge": "1.31.0"
+					}
+				],
+				"fixed": [
+					"1.33.0"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

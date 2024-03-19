@@ -1,0 +1,58 @@
+{
+	"id": "GHSA-jf5h-cf95-w759",
+	"advisories": [
+		{
+			"id": "GHSA-jf5h-cf95-w759",
+			"title": "Optional `Deserialize` implementations lacking validation",
+			"description": "When activating the non-default feature `serialize`, most structs implement\n`serde::Deserialize` without sufficient validation. This allows breaking\ninvariants in safe code, leading to:\n\n* Undefined behavior in `as_string()` methods (which use\n  `std::str::from_utf8_unchecked()` internally).\n* Panics due to failed assertions.\n\nSee https://github.com/gz/rust-cpuid/issues/43.\n",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "MODERATE"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/gz/rust-cpuid/issues/43"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/gz/rust-cpuid"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2021-0089.html"
+				}
+			],
+			"published": "2022-06-17T00:16:24Z",
+			"modified": "2022-06-17T00:16:24Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "raw-cpuid"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "9.1.1",
+						"ge": "3.1.0"
+					}
+				],
+				"fixed": [
+					"9.1.1"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

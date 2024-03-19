@@ -1,0 +1,80 @@
+{
+	"id": "GHSA-jv2r-jx6q-89jg",
+	"advisories": [
+		{
+			"id": "GHSA-jv2r-jx6q-89jg",
+			"title": "Use of Uninitialized Resource in bronzedb-protocol.",
+			"description": "An issue was discovered in the bronzedb-protocol crate through 2021-01-03 for Rust. ReadKVExt may read from uninitialized memory locations.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"base_score": 9.8,
+						"base_severity": "CRITICAL",
+						"temporal_score": 9.8,
+						"temporal_severity": "CRITICAL",
+						"environmental_score": 9.8,
+						"environmental_severity": "CRITICAL"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "CRITICAL"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2021-45682"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/Hexilee/BronzeDB/issues/1"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/Hexilee/BronzeDB"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://raw.githubusercontent.com/rustsec/advisory-db/main/crates/bronzedb-protocol/RUSTSEC-2021-0084.md"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2021-0084.html"
+				}
+			],
+			"published": "2022-01-06T22:16:32Z",
+			"modified": "2022-01-07T16:16:57Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2021-45682"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "bronzedb-protocol"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"le": "0.1.0"
+					}
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

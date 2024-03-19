@@ -1,0 +1,83 @@
+{
+	"id": "GHSA-2wc6-2rcj-8v76",
+	"advisories": [
+		{
+			"id": "GHSA-2wc6-2rcj-8v76",
+			"title": "scalarmult() vulnerable to degenerate public keys",
+			"description": "The scalarmult() function included in previous versions of this crate accepted all-zero public keys, for which the resulting Diffie-Hellman shared secret will always be zero regardless of the private key used.\n\nThis issue was fixed by checking for this class of keys and rejecting them if they are used.",
+			"severity": [
+				{
+					"type": "cvss_v30",
+					"source": "github.com/advisories",
+					"cvss_v30": {
+						"vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:N",
+						"base_score": 6.5,
+						"base_severity": "MEDIUM",
+						"temporal_score": 6.5,
+						"temporal_severity": "MEDIUM",
+						"environmental_score": 6.5,
+						"environmental_severity": "MEDIUM"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "MODERATE"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2017-1000168"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/dnaq/sodiumoxide/issues/154"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/sodiumoxide/sodiumoxide/commit/24c7a5550807ac8a09648b5878f19d14c3a69135"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/sodiumoxide/sodiumoxide"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2017-0001.html"
+				}
+			],
+			"published": "2021-08-25T21:00:41Z",
+			"modified": "2023-06-13T20:56:05Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2017-1000168"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "sodiumoxide"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.0.14"
+					}
+				],
+				"fixed": [
+					"0.0.14"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

@@ -1,0 +1,75 @@
+{
+	"id": "GHSA-x4mq-m75f-mx8m",
+	"advisories": [
+		{
+			"id": "GHSA-x4mq-m75f-mx8m",
+			"title": "Delegate functions are missing `Send` bound",
+			"description": "Affected versions of this crate did not require event handlers to have `Send` bound despite there being no guarantee of them being called on any particular thread, which can potentially lead to data races and undefined behavior.\n\nThe flaw was corrected in commit [afe3252](https://github.com/microsoft/windows-rs/commit/afe32525c22209aa8f632a0f4ad607863b51796a) by adding `Send` bounds.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"base_score": 9.8,
+						"base_severity": "CRITICAL",
+						"temporal_score": 9.8,
+						"temporal_severity": "CRITICAL",
+						"environmental_score": 9.8,
+						"environmental_severity": "CRITICAL"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "CRITICAL"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/microsoft/windows-rs/issues/1409"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/microsoft/windows-rs/commit/afe32525c22209aa8f632a0f4ad607863b51796a"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/microsoft/windows-rs"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2022-0008.html"
+				}
+			],
+			"published": "2022-06-17T00:30:33Z",
+			"modified": "2022-07-05T21:26:36Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "windows"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.32.0",
+						"ge": "0.1.2"
+					}
+				],
+				"fixed": [
+					"0.32.0"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

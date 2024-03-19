@@ -1,0 +1,61 @@
+{
+	"id": "GHSA-w277-wpqf-rcfv",
+	"advisories": [
+		{
+			"id": "GHSA-w277-wpqf-rcfv",
+			"title": "Svix vulnerable to improper comparison of different-length signatures",
+			"description": "The `Webhook::verify` function incorrectly compared signatures of different lengths - the two signatures would only be compared up to the length of the shorter signature. This allowed an attacker to pass in `v1,` as the signature, which would always pass verification.\n",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "MODERATE"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/svix/svix-webhooks/pull/1190"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/svix/svix-webhooks/commit/958821bd3b956d1436af65f70a0964d4ffb7daf6"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/svix/svix-webhooks"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2024-0010.html"
+				}
+			],
+			"published": "2024-02-06T20:30:14Z",
+			"modified": "2024-02-06T20:30:14Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "svix"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "1.17.0"
+					}
+				],
+				"fixed": [
+					"1.17.0"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

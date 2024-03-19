@@ -1,0 +1,58 @@
+{
+	"id": "GHSA-6hcf-g6gr-hhcr",
+	"advisories": [
+		{
+			"id": "GHSA-6hcf-g6gr-hhcr",
+			"title": "`openssl` `X509Extension::new` and `X509Extension::new_nid` null pointer dereference",
+			"description": "These functions would crash when the context argument was None with certain extension types.\n\nThanks to David Benjamin (Google) for reporting this issue.\n",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/sfackler/rust-openssl/pull/1854"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/sfackler/rust-openssl"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2023-0024.html"
+				}
+			],
+			"published": "2023-03-24T22:01:23Z",
+			"modified": "2023-03-24T22:01:23Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "openssl"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.10.48",
+						"ge": "0.9.7"
+					}
+				],
+				"fixed": [
+					"0.10.48"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

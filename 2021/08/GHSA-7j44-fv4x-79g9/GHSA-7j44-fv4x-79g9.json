@@ -1,0 +1,88 @@
+{
+	"id": "GHSA-7j44-fv4x-79g9",
+	"advisories": [
+		{
+			"id": "GHSA-7j44-fv4x-79g9",
+			"title": "Improper Input Validation in once_cell",
+			"description": "If during the first dereference of Lazy the initialization function panics, subsequent dereferences will execute std::hints::unreachable_unchecked. Applications with panic = \"abort\" are not affected, as there will be no subsequent dereferences.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"base_score": 7.5,
+						"base_severity": "HIGH",
+						"temporal_score": 7.5,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7.5,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2019-16141"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/matklad/once_cell/issues/46"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/matklad/once_cell/pull/47"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/matklad/once_cell/commit/afcca95a05240ebd931ab20998c946f77ef1e284"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/matklad/once_cell"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2019-0017.html"
+				}
+			],
+			"published": "2021-08-25T20:44:18Z",
+			"modified": "2023-06-13T19:58:10Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2019-16141"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "once_cell"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "1.0.1",
+						"ge": "0.2.5"
+					}
+				],
+				"fixed": [
+					"1.0.1"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

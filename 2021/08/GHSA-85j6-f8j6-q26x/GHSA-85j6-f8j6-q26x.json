@@ -1,0 +1,79 @@
+{
+	"id": "GHSA-85j6-f8j6-q26x",
+	"advisories": [
+		{
+			"id": "GHSA-85j6-f8j6-q26x",
+			"title": "Unaligned references in Obstack",
+			"description": "Obstack generates unaligned references for types that require a large alignment.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+						"base_score": 7.5,
+						"base_severity": "HIGH",
+						"temporal_score": 7.5,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7.5,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2020-35894"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/petertodd/rust-obstack/issues/4"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/petertodd/rust-obstack"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2020-0040.html"
+				}
+			],
+			"published": "2021-08-25T20:48:12Z",
+			"modified": "2023-06-13T19:59:50Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2020-35894"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "obstack"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.1.4"
+					}
+				],
+				"fixed": [
+					"0.1.4"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

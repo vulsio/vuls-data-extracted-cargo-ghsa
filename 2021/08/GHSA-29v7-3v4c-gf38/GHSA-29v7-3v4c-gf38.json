@@ -1,0 +1,80 @@
+{
+	"id": "GHSA-29v7-3v4c-gf38",
+	"advisories": [
+		{
+			"id": "GHSA-29v7-3v4c-gf38",
+			"title": "Data races in parc",
+			"description": "In the affected versions of this crate, LockWeak<T> unconditionally implemented Send with no trait bounds on T. LockWeak<T> doesn't own T and only provides &T. This allows concurrent access to a non-Sync T, which can cause undefined behavior like data races.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"base_score": 8.1,
+						"base_severity": "HIGH",
+						"temporal_score": 8.1,
+						"temporal_severity": "HIGH",
+						"environmental_score": 8.1,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2020-36454"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/hyyking/rustracts/pull/6"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/hyyking/rustracts/tree/master/parc"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://raw.githubusercontent.com/rustsec/advisory-db/main/crates/parc/RUSTSEC-2020-0134.md"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2020-0134.html"
+				}
+			],
+			"published": "2021-08-25T20:57:24Z",
+			"modified": "2023-06-13T20:11:11Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2020-36454"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "parc"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"le": "1.0.1"
+					}
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

@@ -1,0 +1,57 @@
+{
+	"id": "GHSA-qgrp-8f3v-q85p",
+	"advisories": [
+		{
+			"id": "GHSA-qgrp-8f3v-q85p",
+			"title": "`FixedSizeBinaryArray` does not perform bound checks on accessing values and offsets",
+			"description": "`FixedSizeBinaryArray` performs insufficient bounds checks, which allows out-of-bounds reads in safe code.\n",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/apache/arrow-rs/issues/774"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/apache/arrow-rs"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2021-0118.html"
+				}
+			],
+			"published": "2022-06-16T23:41:45Z",
+			"modified": "2022-06-16T23:41:45Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "arrow"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "6.4.0"
+					}
+				],
+				"fixed": [
+					"6.4.0"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

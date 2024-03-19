@@ -1,0 +1,83 @@
+{
+	"id": "GHSA-fhvc-gp6c-h2wx",
+	"advisories": [
+		{
+			"id": "GHSA-fhvc-gp6c-h2wx",
+			"title": "Read on uninitialized buffer in postscript",
+			"description": "Affected versions of this crate passes an uninitialized buffer to a user-provided Read implementation.\n\nArbitrary Read implementations can read from the uninitialized buffer (memory exposure) and also can return incorrect number of bytes written to the buffer. Reading from uninitialized memory produces undefined values that can quickly invoke undefined behavior.\n\nThis flaw was fixed in commit `8026286` by zero-initializing the buffer before handing to a user-provided Read.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+						"base_score": 7.5,
+						"base_severity": "HIGH",
+						"temporal_score": 7.5,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7.5,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2021-26953"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/bodoni/postscript/issues/1"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/bodoni/postscript/commit/8026286"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/bodoni/postscript"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2021-0017.html"
+				}
+			],
+			"published": "2021-08-25T20:52:23Z",
+			"modified": "2023-06-13T20:33:52Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2021-26953"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "postscript"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.14.0"
+					}
+				],
+				"fixed": [
+					"0.14.0"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

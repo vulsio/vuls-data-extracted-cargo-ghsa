@@ -1,0 +1,98 @@
+{
+	"id": "GHSA-mmc9-pwm7-qj5w",
+	"advisories": [
+		{
+			"id": "GHSA-mmc9-pwm7-qj5w",
+			"title": "Unaligned memory access in rand_core",
+			"description": "### Impact\nAffected versions of this crate violated alignment when casting byte slices to integer slices, resulting in undefined behavior. `rand_core::BlockRng::next_u64` and `rand_core::BlockRng::fill_bytes` are affected.\n\n### Patches\nThe flaw was corrected by Ralf Jung and Diggory Hardy for `rand_core >= 0.4.2`.\n\n### Workarounds\nNone.\n\n### References\nSee [Rand's changelog](https://github.com/rust-random/rand/blob/master/rand_core/CHANGELOG.md#050---2019-06-06).\n\n### For more information\nIf you have any questions or comments about this advisory, [open an issue in the Rand repository](https://github.com/rust-random/rand/issues/new/choose).\n\n",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"base_score": 9.8,
+						"base_severity": "CRITICAL",
+						"temporal_score": 9.8,
+						"temporal_severity": "CRITICAL",
+						"environmental_score": 9.8,
+						"environmental_severity": "CRITICAL"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "CRITICAL"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/rust-random/rand/security/advisories/GHSA-mmc9-pwm7-qj5w"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/rust-random/rand"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/rust-random/rand/blob/master/rand_core/CHANGELOG.md#050---2019-06-06"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2019-0035.html"
+				}
+			],
+			"published": "2021-08-25T20:56:50Z",
+			"modified": "2021-08-18T20:45:24Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2020-25576"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "rand_core"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.4.2",
+						"ge": "0.4.0"
+					}
+				],
+				"fixed": [
+					"0.4.2"
+				]
+			}
+		},
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "rand_core"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.3.1"
+					}
+				],
+				"fixed": [
+					"0.3.1"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

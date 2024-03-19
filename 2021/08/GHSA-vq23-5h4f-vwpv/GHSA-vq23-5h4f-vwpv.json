@@ -1,0 +1,75 @@
+{
+	"id": "GHSA-vq23-5h4f-vwpv",
+	"advisories": [
+		{
+			"id": "GHSA-vq23-5h4f-vwpv",
+			"title": "Update unsound DrainFilter and RString::retain",
+			"description": "An issue was discovered in the abi_stable crate before 0.9.1 for Rust. DrainFilter lacks soundness because of a double drop.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"base_score": 7.5,
+						"base_severity": "HIGH",
+						"temporal_score": 7.5,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7.5,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2020-36212"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/rodrimati1992/abi_stable_crates/issues/44"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2020-0105.html"
+				}
+			],
+			"published": "2021-08-25T21:01:35Z",
+			"modified": "2022-06-15T19:41:47Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2020-36212"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "abi_stable"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.9.1"
+					}
+				],
+				"fixed": [
+					"0.9.1"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

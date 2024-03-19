@@ -1,0 +1,80 @@
+{
+	"id": "GHSA-ff2r-xpwq-6whj",
+	"advisories": [
+		{
+			"id": "GHSA-ff2r-xpwq-6whj",
+			"title": "Use of Uninitialized Resource in gfx-auxil",
+			"description": "Affected versions of this crate passes an uninitialized buffer to a user-provided Read implementation.\n\nArbitrary Read implementations can read from the uninitialized buffer (memory exposure) and also can return incorrect number of bytes written to the buffer. Reading from uninitialized memory produces undefined values that can quickly invoke undefined behavior.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"base_score": 9.8,
+						"base_severity": "CRITICAL",
+						"temporal_score": 9.8,
+						"temporal_severity": "CRITICAL",
+						"environmental_score": 9.8,
+						"environmental_severity": "CRITICAL"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "CRITICAL"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2021-45689"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/gfx-rs/gfx/issues/3567"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/gfx-rs/gfx"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://raw.githubusercontent.com/rustsec/advisory-db/main/crates/gfx-auxil/RUSTSEC-2021-0091.md"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2021-0091.html"
+				}
+			],
+			"published": "2022-01-06T22:12:14Z",
+			"modified": "2023-06-13T17:10:49Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2021-45689"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "gfx-auxil"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"le": "0.10.0"
+					}
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

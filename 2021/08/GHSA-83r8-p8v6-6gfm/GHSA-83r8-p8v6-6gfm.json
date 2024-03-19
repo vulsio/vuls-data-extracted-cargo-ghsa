@@ -1,0 +1,70 @@
+{
+	"id": "GHSA-83r8-p8v6-6gfm",
+	"advisories": [
+		{
+			"id": "GHSA-83r8-p8v6-6gfm",
+			"title": "Slock<T> allows sending non-Send types across thread boundaries",
+			"description": "`Slock<T>` unconditionally implements `Send`/`Sync`.\n\nAffected versions of this crate allows sending non-Send types to other threads,\nwhich can lead to data races and memory corruption due to the data race.\n",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"base_score": 8.1,
+						"base_severity": "HIGH",
+						"temporal_score": 8.1,
+						"temporal_severity": "HIGH",
+						"environmental_score": 8.1,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/BrokenLamp/slock-rs/issues/2"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/BrokenLamp/slock-rs"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2020-0135.html"
+				}
+			],
+			"published": "2021-08-25T21:00:20Z",
+			"modified": "2022-06-14T20:53:20Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "slock"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.2.0"
+					}
+				],
+				"fixed": [
+					"0.2.0"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

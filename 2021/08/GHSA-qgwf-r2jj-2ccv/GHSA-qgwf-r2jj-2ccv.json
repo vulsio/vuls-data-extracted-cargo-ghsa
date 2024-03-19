@@ -1,0 +1,79 @@
+{
+	"id": "GHSA-qgwf-r2jj-2ccv",
+	"advisories": [
+		{
+			"id": "GHSA-qgwf-r2jj-2ccv",
+			"title": "Use after free in heapless",
+			"description": "An issue was discovered in the heapless crate before 0.6.1 for Rust. The IntoIter Clone implementation clones an entire underlying Vec without considering whether it has already been partially consumed.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"base_score": 7.5,
+						"base_severity": "HIGH",
+						"temporal_score": 7.5,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7.5,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2020-36464"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/japaric/heapless/issues/181"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/japaric/heapless"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2020-0145.html"
+				}
+			],
+			"published": "2021-08-25T20:56:09Z",
+			"modified": "2021-08-18T21:16:38Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2020-36464"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "heapless"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.6.1"
+					}
+				],
+				"fixed": [
+					"0.6.1"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

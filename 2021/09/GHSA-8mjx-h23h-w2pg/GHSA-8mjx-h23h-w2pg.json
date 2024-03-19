@@ -1,0 +1,87 @@
+{
+	"id": "GHSA-8mjx-h23h-w2pg",
+	"advisories": [
+		{
+			"id": "GHSA-8mjx-h23h-w2pg",
+			"title": "Double free in stack_dst",
+			"description": "Affected versions of stack_dst used a push_inner function that increased the internal length of the array and then called val.clone(). If the val.clone() call panics, the stack could drop an already dropped element or drop uninitialized memory. This issue was fixed in `2a4d538` by increasing the length of the array after elements are cloned.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"base_score": 9.8,
+						"base_severity": "CRITICAL",
+						"temporal_score": 9.8,
+						"temporal_severity": "CRITICAL",
+						"environmental_score": 9.8,
+						"environmental_severity": "CRITICAL"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "CRITICAL"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2021-28034"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/thepowersgang/stack_dst-rs/issues/5"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/thepowersgang/stack_dst-rs/commit/2a4d538"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/thepowersgang/stack_dst-rs/commit/2a4d53809e3000f40085f2b229b6b1a33759881d"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/thepowersgang/stack_dst-rs"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2021-0033.html"
+				}
+			],
+			"published": "2021-09-01T18:30:44Z",
+			"modified": "2023-06-13T20:52:43Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2021-28034"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "stack_dst"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.6.1"
+					}
+				],
+				"fixed": [
+					"0.6.1"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

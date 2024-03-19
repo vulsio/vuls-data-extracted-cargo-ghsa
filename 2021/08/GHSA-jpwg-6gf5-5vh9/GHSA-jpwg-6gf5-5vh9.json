@@ -1,0 +1,79 @@
+{
+	"id": "GHSA-jpwg-6gf5-5vh9",
+	"advisories": [
+		{
+			"id": "GHSA-jpwg-6gf5-5vh9",
+			"title": "Out of bounds write in reorder",
+			"description": "swap_index takes an iterator and swaps the items with their corresponding indexes. It reserves capacity and sets the length of the vector based on the .len() method of the iterator.\n\nIf the len() returned by the iterator is larger than the actual number of elements yielded, then swap_index creates a vector containing uninitialized members. If the len() returned by the iterator is smaller than the actual number of members yielded, then swap_index can write out of bounds past its allocated vector.\n\nAs noted by the Rust documentation, len() and size_hint() are primarily meant for optimization and incorrect values from their implementations should not lead to memory safety violations.\n",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+						"base_score": 7.3,
+						"base_severity": "HIGH",
+						"temporal_score": 7.3,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7.3,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2021-29942"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/tiby312/reorder/issues/1"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/tiby312/reorder"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2021-0050.html"
+				}
+			],
+			"published": "2021-08-25T20:54:10Z",
+			"modified": "2023-06-13T20:49:19Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2021-29942"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "reorder"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "1.1.0"
+					}
+				],
+				"fixed": [
+					"1.1.0"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

@@ -1,0 +1,58 @@
+{
+	"id": "GHSA-g753-ghr7-q33w",
+	"advisories": [
+		{
+			"id": "GHSA-g753-ghr7-q33w",
+			"title": "cyfs-base vulnerable to misaligned pointer dereference in `ChunkId::new`",
+			"description": "The function `ChunkId::new` creates a misaligned pointer by casting mutable pointer of `u8` slice which has alignment 1 to the mutable pointer of `u32` which has alignment 4, and dereference the misaligned pointer leading UB, which should not be allowed in safe function.\n",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "MODERATE"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/buckyos/CYFS/issues/275"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/buckyos/CYFS/commit/e030188895096fd8d91d48753877729f4d37dd24"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/buckyos/CYFS"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2023-0046.html"
+				}
+			],
+			"published": "2023-06-22T20:01:55Z",
+			"modified": "2023-06-22T20:01:55Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "cyfs-base"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"le": "0.6.12"
+					}
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

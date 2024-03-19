@@ -1,0 +1,52 @@
+{
+	"id": "GHSA-rc23-xxgq-x27g",
+	"advisories": [
+		{
+			"id": "GHSA-rc23-xxgq-x27g",
+			"title": "wee_alloc is Unmaintained",
+			"description": "Two of the maintainers have indicated that the crate may not be maintained.\n\nThe crate has open issues including memory leaks and may not be suitable for production use.\n\nIt may be best to switch to the default Rust standard allocator on wasm32 targets.\n\nLast release seems to have been three years ago.",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "CRITICAL"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/rustwasm/wee_alloc/issues/107"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/rustwasm/wee_alloc"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2022-0054.html"
+				}
+			],
+			"published": "2022-09-16T17:18:28Z",
+			"modified": "2022-09-16T17:18:28Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "wee_alloc"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{}
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

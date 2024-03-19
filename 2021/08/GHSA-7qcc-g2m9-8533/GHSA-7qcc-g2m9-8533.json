@@ -1,0 +1,79 @@
+{
+	"id": "GHSA-7qcc-g2m9-8533",
+	"advisories": [
+		{
+			"id": "GHSA-7qcc-g2m9-8533",
+			"title": "Null pointer deference in fltk",
+			"description": "An issue was discovered in the fltk crate before 0.15.3 for Rust. There is a NULL pointer dereference during attempted use of a non-raster image for a window icon.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"base_score": 7.5,
+						"base_severity": "HIGH",
+						"temporal_score": 7.5,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7.5,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2021-28307"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/MoAlyousef/fltk-rs/issues/519"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/MoAlyousef/fltk-rs"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2021-0038.html"
+				}
+			],
+			"published": "2021-08-25T20:53:53Z",
+			"modified": "2021-08-19T17:22:29Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2021-28307"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "fltk"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.15.3"
+					}
+				],
+				"fixed": [
+					"0.15.3"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

@@ -1,0 +1,50 @@
+{
+	"id": "GHSA-gfg9-x6px-r7gr",
+	"advisories": [
+		{
+			"id": "GHSA-gfg9-x6px-r7gr",
+			"title": "Library exclusively intended to obfuscate code.",
+			"description": "This crate allows you to write safe functions with unsafe bodies without the `unsafe` keyword.\n\nThe value this adds is questionable, and hides `unsafe` usages from naive analysis.\n",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "MODERATE"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/mxxo/plutonium"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2020-0011.html"
+				}
+			],
+			"published": "2022-06-16T23:09:17Z",
+			"modified": "2022-06-16T23:09:17Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "plutonium"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"le": "0.5.2"
+					}
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

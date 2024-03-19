@@ -1,0 +1,143 @@
+{
+	"id": "GHSA-5v8v-66v8-mwm7",
+	"advisories": [
+		{
+			"id": "GHSA-5v8v-66v8-mwm7",
+			"title": "Integer overflow in the bundled Brotli C library",
+			"description": "A buffer overflow exists in the Brotli library versions prior to 1.0.8 where an attacker controlling the input length of a \"one-shot\" decompression request to a script can trigger a crash, which happens when copying over chunks of data larger than 2 GiB. It is recommended to update your Brotli library to 1.0.8 or later. If one cannot update, we recommend to use the \"streaming\" API as opposed to the \"one-shot\" API, and impose chunk size limits.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:L",
+						"base_score": 6.5,
+						"base_severity": "MEDIUM",
+						"temporal_score": 6.5,
+						"temporal_severity": "MEDIUM",
+						"environmental_score": 6.5,
+						"environmental_severity": "MEDIUM"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "MODERATE"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2020-8927"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/bitemyapp/brotli2-rs/issues/45"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/github/advisory-database/issues/785"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://www.debian.org/security/2020/dsa-4801"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://usn.ubuntu.com/4568-1"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2021-0132.html"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2021-0131.html"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/ZXEQ3GQVELA2T4HNZG7VPMS2HDVXMJRG"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/WW62OZEY2GHJL4JCOLJRBSRETXDHMWRK"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/W23CUADGMVMQQNFKHPHXVP7RPZJZNN6I"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/MQLM7ABVCYJLF6JRPF3M3EBXW63GNC27"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/MMBKACMLSRX7JJSKBTR35UOEP2WFR6QP"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/M4VCDOJGL6BK3HB4XRD2WETBPYX2ITF6"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/J4E265WKWKYMK2RYYSIXBEGZTDY5IQE6"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/4TOGTZ2ZWDH662ZNFFSZVL3M5AJXV6JF"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/356JOYTWW4BWSZ42SEFLV7NYHL3S3AEH"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://lists.debian.org/debian-lts-announce/2020/12/msg00003.html"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/google/brotli/releases/tag/v1.0.9"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/bitemyapp/brotli2-rs"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "http://lists.opensuse.org/opensuse-security-announce/2020-09/msg00108.html"
+				}
+			],
+			"published": "2022-05-24T17:28:21Z",
+			"modified": "2022-06-16T23:47:42Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2020-8927"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "compu-brotli-sys"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "1.0.9"
+					}
+				],
+				"fixed": [
+					"1.0.9"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

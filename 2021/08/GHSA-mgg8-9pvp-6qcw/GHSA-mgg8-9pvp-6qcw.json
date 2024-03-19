@@ -1,0 +1,54 @@
+{
+	"id": "GHSA-mgg8-9pvp-6qcw",
+	"advisories": [
+		{
+			"id": "GHSA-mgg8-9pvp-6qcw",
+			"title": "MvccRwLock allows data races & aliasing violations",
+			"description": "Affected versions of the `noise_search` crate unconditionally implement Send/Sync for `MvccRwLock`.\nThis can lead to data races when types that are either `!Send` or `!Sync` (e.g. `Rc<T>`, `Arc<Cell<_>>`) are contained inside `MvccRwLock` and sent across thread boundaries. The data races can potentially lead to memory corruption (as demonstrated in the PoC from the original report issue).\n\nAlso, safe APIs of `MvccRwLock` allow aliasing violations by allowing `&T` and `LockResult<MutexGuard<Box<T>>>` to co-exist in conflicting lifetime regions. The APIs of `MvccRwLock` should either be marked as `unsafe` or `MbccRwLock` should be changed to private or pub(crate).\n",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "MODERATE"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/pipedown/noise/issues/72"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/pipedown/noise"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2020-0141.html"
+				}
+			],
+			"published": "2021-08-25T20:59:59Z",
+			"modified": "2021-08-24T18:01:27Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "noise_search"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"le": "0.7.0"
+					}
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

@@ -1,0 +1,75 @@
+{
+	"id": "GHSA-wcm8-86x6-8mv3",
+	"advisories": [
+		{
+			"id": "GHSA-wcm8-86x6-8mv3",
+			"title": "Apache Avro Rust SDK's Reader could consume memory beyond allowed constraints",
+			"description": "It is possible for a Reader to consume memory beyond the allowed constraints and thus lead to out of memory on the system. This issue affects Rust applications using Apache Avro Rust SDK prior to 0.14.0 (previously known as avro-rs). Users should update to apache-avro version 0.14.0 which addresses this issue.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"base_score": 7.5,
+						"base_severity": "HIGH",
+						"temporal_score": 7.5,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7.5,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2022-36124"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/a0x8o/avro"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://lists.apache.org/thread/kj429rzo1xxjgz058qqqg0y7c0p512zo"
+				}
+			],
+			"published": "2022-08-10T00:00:31Z",
+			"modified": "2022-08-30T20:05:09Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2022-36124"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "apache-avro"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.14.0"
+					}
+				],
+				"fixed": [
+					"0.14.0"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

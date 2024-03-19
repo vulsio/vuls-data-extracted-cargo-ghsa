@@ -1,0 +1,84 @@
+{
+	"id": "GHSA-fc7x-2cmc-8j2g",
+	"advisories": [
+		{
+			"id": "GHSA-fc7x-2cmc-8j2g",
+			"title": "Incorrect hash in sha2",
+			"description": "The v0.9.7 release of the sha2 crate introduced a new AVX2-accelerated backend which was automatically enabled for all x86/x86_64 CPUs where AVX2 support was autodetected at runtime.\n\nThis backend was buggy and would miscompute results for long messages (i.e. messages spanning multiple SHA blocks).\n\nThe crate has since been yanked, but any users who upgraded to v0.9.7 should immediately upgrade to v0.9.8 and recompute any hashes which were previously computed by v0.9.7.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"base_score": 9.8,
+						"base_severity": "CRITICAL",
+						"temporal_score": 9.8,
+						"temporal_severity": "CRITICAL",
+						"environmental_score": 9.8,
+						"environmental_severity": "CRITICAL"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "CRITICAL"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2021-45696"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/RustCrypto/hashes/pull/314"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/RustCrypto/hashes"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://raw.githubusercontent.com/rustsec/advisory-db/main/crates/sha2/RUSTSEC-2021-0100.md"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2021-0100.html"
+				}
+			],
+			"published": "2022-01-06T22:10:26Z",
+			"modified": "2023-06-13T20:41:36Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2021-45696"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "sha2"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.9.8",
+						"ge": "0.9.7"
+					}
+				],
+				"fixed": [
+					"0.9.8"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

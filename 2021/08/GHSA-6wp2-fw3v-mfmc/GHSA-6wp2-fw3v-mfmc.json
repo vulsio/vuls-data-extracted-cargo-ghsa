@@ -1,0 +1,83 @@
+{
+	"id": "GHSA-6wp2-fw3v-mfmc",
+	"advisories": [
+		{
+			"id": "GHSA-6wp2-fw3v-mfmc",
+			"title": "Memory corruption in array-tools",
+			"description": "An issue was discovered in the array-tools crate before 0.3.2 for Rust. Affected versions of this crate don't guard against panics, so that partially uninitialized buffer is dropped when user-provided `T::clone()` panics in `FixedCapacityDequeLike<T, A>::clone()`. This causes memory corruption.\n",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"base_score": 9.8,
+						"base_severity": "CRITICAL",
+						"temporal_score": 9.8,
+						"temporal_severity": "CRITICAL",
+						"environmental_score": 9.8,
+						"environmental_severity": "CRITICAL"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "CRITICAL"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2020-36452"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/L117/array-tools/issues/2"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/L117/array-tools"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://raw.githubusercontent.com/rustsec/advisory-db/main/crates/array-tools/RUSTSEC-2020-0132.md"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2020-0132.html"
+				}
+			],
+			"published": "2021-08-25T20:57:19Z",
+			"modified": "2021-08-24T18:54:26Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2020-36452"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "array-tools"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.3.2"
+					}
+				],
+				"fixed": [
+					"0.3.2"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

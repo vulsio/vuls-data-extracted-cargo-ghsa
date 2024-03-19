@@ -1,0 +1,83 @@
+{
+	"id": "GHSA-8m49-2xj8-67v9",
+	"advisories": [
+		{
+			"id": "GHSA-8m49-2xj8-67v9",
+			"title": "Data Loss/Denial of Service in SWHKD",
+			"description": "SWHKD 1.1.5 unsafely uses the /tmp/swhks.pid pathname. There can be data loss or a denial of service. A patch is available on the `1.1.0` branch of the repository.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:H",
+						"base_score": 7.1,
+						"base_severity": "HIGH",
+						"temporal_score": 7.1,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7.1,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2022-27816"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/waycrate/swhkd/commit/0b620a09605afb815c6d8d8953bbb7a10a8c0575"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/waycrate/swhkd"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/waycrate/swhkd/releases/tag/1.2.0"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "http://www.openwall.com/lists/oss-security/2022/04/14/1"
+				}
+			],
+			"published": "2022-03-31T00:00:24Z",
+			"modified": "2022-04-28T18:02:03Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2022-27816"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "Simple-Wayland-HotKey-Daemon"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "1.2.0"
+					}
+				],
+				"fixed": [
+					"1.2.0"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

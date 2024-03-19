@@ -1,0 +1,87 @@
+{
+	"id": "GHSA-p4jg-pccf-h82c",
+	"advisories": [
+		{
+			"id": "GHSA-p4jg-pccf-h82c",
+			"title": "Insecure Temporary File in SWHKD",
+			"description": "SWHKD is a display protocol-independent hotkey daemon made in Rust. In SWHKD versions 1.1.5 and prior, SWHKD uses the /tmp/swhkd.pid pathname. As /tmp is accessible to all users, there can be an information leak or denial of service. No known workarounds exist. A patch is available on the `1.1.0` branch of the repository.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:H",
+						"base_score": 9.1,
+						"base_severity": "CRITICAL",
+						"temporal_score": 9.1,
+						"temporal_severity": "CRITICAL",
+						"environmental_score": 9.1,
+						"environmental_severity": "CRITICAL"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "CRITICAL"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2022-27815"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/waycrate/swhkd/commit/e661a4940df78fbb7b52c622ac4ae6a3a7f7d8aa"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/waycrate/swhkd"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/waycrate/swhkd/releases"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/waycrate/swhkd/releases/tag/1.2.0"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "http://www.openwall.com/lists/oss-security/2022/04/14/1"
+				}
+			],
+			"published": "2022-03-31T00:00:24Z",
+			"modified": "2022-04-06T23:57:05Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2022-27815"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "Simple-Wayland-HotKey-Daemon"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "1.2.0"
+					}
+				],
+				"fixed": [
+					"1.2.0"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

@@ -1,0 +1,54 @@
+{
+	"id": "GHSA-jcr6-4frq-9gjj",
+	"advisories": [
+		{
+			"id": "GHSA-jcr6-4frq-9gjj",
+			"title": "Users vulnerable to unaligned read of `*const *const c_char` pointer",
+			"description": "Affected versions dereference a potentially unaligned pointer. The pointer is commonly unaligned in practice, resulting in undefined behavior.\n\nIn some build modes, this is observable as a panic followed by abort. In other build modes the UB may manifest in some other way, including the possibility of working correctly in some architectures.\n\nThe crate is not currently maintained, so a patched version is not available.\n\n## Recommended alternatives\n- [`uzers`](https://crates.io/crates/uzers) (an actively maintained fork of the `users` crate)\n- [`sysinfo`](https://crates.io/crates/sysinfo)\n",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "MODERATE"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/ogham/rust-users/issues/55"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/ogham/rust-users"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2023-0059.html"
+				}
+			],
+			"published": "2023-09-11T20:43:31Z",
+			"modified": "2023-09-13T14:04:07Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "users"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"le": "0.11.0"
+					}
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

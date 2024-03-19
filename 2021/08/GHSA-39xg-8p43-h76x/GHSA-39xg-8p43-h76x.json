@@ -1,0 +1,83 @@
+{
+	"id": "GHSA-39xg-8p43-h76x",
+	"advisories": [
+		{
+			"id": "GHSA-39xg-8p43-h76x",
+			"title": "Data races in reffers",
+			"description": "ARefss<'a, V> is a type that is assumed to contain objects that are Send + Sync.\n\nIn the affected versions of this crate, Send/Sync traits are unconditionally implemented for ARefss<'a, V>.\n\nBy using the ARefss::map() API, we can insert a !Send or !Sync object into ARefss<'a, V>. After that, it is possible to create a data race to the inner object of ARefss<'a, V>, which can lead to undefined behavior & memory corruption.\n\nThe flaw was corrected in commit `6dd7ca0` by adding trait bound V: Send + Sync to ARefss::map() API.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H",
+						"base_score": 4.7,
+						"base_severity": "MEDIUM",
+						"temporal_score": 4.7,
+						"temporal_severity": "MEDIUM",
+						"environmental_score": 4.7,
+						"environmental_severity": "MEDIUM"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "MODERATE"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2020-36203"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/diwic/reffers-rs/issues/7"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/diwic/reffers-rs/commit/6dd7ca0d50f2464df708975cdafcfaeeb6d41c66"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/diwic/reffers-rs"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2020-0094.html"
+				}
+			],
+			"published": "2021-08-25T20:51:40Z",
+			"modified": "2023-06-13T20:28:35Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2020-36203"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "reffers"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.6.1"
+					}
+				],
+				"fixed": [
+					"0.6.1"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

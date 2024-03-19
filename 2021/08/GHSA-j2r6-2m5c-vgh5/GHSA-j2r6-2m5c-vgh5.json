@@ -1,0 +1,79 @@
+{
+	"id": "GHSA-j2r6-2m5c-vgh5",
+	"advisories": [
+		{
+			"id": "GHSA-j2r6-2m5c-vgh5",
+			"title": "Counter overflow in chacha20",
+			"description": "An issue was discovered in the chacha20 crate before 0.2.3 for Rust. A ChaCha20 counter overflow makes it easier for attackers to determine plaintext.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+						"base_score": 7.5,
+						"base_severity": "HIGH",
+						"temporal_score": 7.5,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7.5,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2019-25005"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/RustCrypto/stream-ciphers/pull/64"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/RustCrypto/stream-ciphers/tree/master/chacha20"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2019-0029.html"
+				}
+			],
+			"published": "2021-08-25T20:45:20Z",
+			"modified": "2021-08-19T21:20:52Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2019-25005"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "chacha20"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.2.3"
+					}
+				],
+				"fixed": [
+					"0.2.3"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

@@ -1,0 +1,54 @@
+{
+	"id": "GHSA-q579-9wp9-gfp2",
+	"advisories": [
+		{
+			"id": "GHSA-q579-9wp9-gfp2",
+			"title": "Window can read out of bounds if Read instance returns more bytes than buffer size",
+			"description": "`rdiff` performs a diff of two provided strings or files. As part of its reading code it uses the return value of a `Read` instance to set the length of its internal character vector.\n\nIf the `Read` implementation claims that it has read more bytes than the length of the provided buffer, the length of the vector will be set to longer than its capacity. This causes `rdiff` APIs to return uninitialized memory in its API\nmethods.\n",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/dyule/rdiff/issues/3"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/dyule/rdiff"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2021-0094.html"
+				}
+			],
+			"published": "2022-06-17T00:14:18Z",
+			"modified": "2023-06-13T20:10:22Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "rdiff"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"le": "0.1.2"
+					}
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

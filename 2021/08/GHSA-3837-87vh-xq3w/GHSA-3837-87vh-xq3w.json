@@ -1,0 +1,87 @@
+{
+	"id": "GHSA-3837-87vh-xq3w",
+	"advisories": [
+		{
+			"id": "GHSA-3837-87vh-xq3w",
+			"title": "Data race in v9",
+			"description": "Affected versions of this crate unconditionally implement Sync for SyncRef<T>. This definition allows data races if &T is accessible through &SyncRef.\n\nSyncRef<T> derives Clone and Debug, and the default implementations of those traits access &T by invoking T::clone() & T::fmt(). It is possible to create data races & undefined behavior by concurrently invoking SyncRef<T>::clone() or SyncRef<T>::fmt() from multiple threads with T: !Sync.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"base_score": 8.1,
+						"base_severity": "HIGH",
+						"temporal_score": 8.1,
+						"temporal_severity": "HIGH",
+						"environmental_score": 8.1,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2020-36447"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/purpleposeidon/v9/issues/1"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/purpleposeidon/v9/commit/18847c50e5d36561cc91c996c3539ddb1eacf6c7"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/purpleposeidon/v9"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://raw.githubusercontent.com/rustsec/advisory-db/main/crates/v9/RUSTSEC-2020-0127.md"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2020-0127.html"
+				}
+			],
+			"published": "2021-08-25T20:57:07Z",
+			"modified": "2023-06-13T22:35:33Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2020-36447"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "v9"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.1.43"
+					}
+				],
+				"fixed": [
+					"0.1.43"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

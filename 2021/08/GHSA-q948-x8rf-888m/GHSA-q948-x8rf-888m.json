@@ -1,0 +1,79 @@
+{
+	"id": "GHSA-q948-x8rf-888m",
+	"advisories": [
+		{
+			"id": "GHSA-q948-x8rf-888m",
+			"title": "os_str_bytes relies on undefined behavior of `char::from_u32_unchecked`",
+			"description": "The Windows implementation of this crate relied on the behavior of std::char::from_u32_unchecked when its safety clause is violated. Even though this worked with Rust versions up to 1.42 (at least), that behavior could change with any new Rust version, possibly leading a security issue.\n\nThe flaw was corrected in version 2.0.0.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"base_score": 7.5,
+						"base_severity": "HIGH",
+						"temporal_score": 7.5,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7.5,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2020-35865"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/dylni/os_str_bytes/pull/1"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/dylni/os_str_bytes"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2020-0012.html"
+				}
+			],
+			"published": "2021-08-25T20:47:55Z",
+			"modified": "2023-06-13T20:12:22Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2020-35865"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "os_str_bytes"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "2.0.0"
+					}
+				],
+				"fixed": [
+					"2.0.0"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

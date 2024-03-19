@@ -1,0 +1,52 @@
+{
+	"id": "GHSA-vfv3-9w6v-23jp",
+	"advisories": [
+		{
+			"id": "GHSA-vfv3-9w6v-23jp",
+			"title": "typemap is Unmaintained",
+			"description": "The maintainer seems unreachable. The crate may or may not be usable as-is despite no maintenance and may not work in future versions of Rust. The last release seems to have been seven years ago.",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "CRITICAL"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/reem/rust-typemap/issues/45"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/reem/rust-typemap"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2019-0039.html"
+				}
+			],
+			"published": "2022-09-16T17:13:21Z",
+			"modified": "2022-09-16T17:13:21Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "typemap"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{}
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

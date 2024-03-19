@@ -1,0 +1,88 @@
+{
+	"id": "GHSA-4mq4-7rw3-vm5j",
+	"advisories": [
+		{
+			"id": "GHSA-4mq4-7rw3-vm5j",
+			"title": "Wasmer filesystem sandbox not enforced",
+			"description": "### Summary\nAs of Wasmer version v4.2.3, Wasm programs can access the filesystem outside of the sandbox.\n\n### Details\nhttps://github.com/wasmerio/wasmer/issues/4267\n\n### PoC\nA minimal Rust program:\n\n```\nfn main() {\n    let f = std::fs::OpenOptions::new()\n        .write(true)\n        .create_new(true)\n        .open(\"abc\")\n        .unwrap();\n}\n```\n\nThis should be compiled with `cargo build --target wasm32-wasi`. The compiled program, when run with wasmer WITHOUT `--dir`, can still create a file in the working directory.\n\n### Impact\nService providers running untrusted Wasm code on Wasmer can unexpectedly expose the host filesystem.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"base_score": 8.4,
+						"base_severity": "HIGH",
+						"temporal_score": 8.4,
+						"temporal_severity": "HIGH",
+						"environmental_score": 8.4,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/wasmerio/wasmer/security/advisories/GHSA-4mq4-7rw3-vm5j"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2023-51661"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/wasmerio/wasmer/issues/4267"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/wasmerio/wasmer/commit/4d63febf9d8b257b0531963b85df48d45d0dbf3c"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/wasmerio/wasmer/commit/e3923612c23123025c26f982d390e34df7df030f"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/wasmerio/wasmer"
+				}
+			],
+			"published": "2023-12-13T13:32:38Z",
+			"modified": "2024-01-03T16:44:36Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2023-51661"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "wasmer-cli"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "4.2.4",
+						"ge": "3.0.0"
+					}
+				],
+				"fixed": [
+					"4.2.4"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

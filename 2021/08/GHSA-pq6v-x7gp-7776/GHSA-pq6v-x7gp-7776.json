@@ -1,0 +1,76 @@
+{
+	"id": "GHSA-pq6v-x7gp-7776",
+	"advisories": [
+		{
+			"id": "GHSA-pq6v-x7gp-7776",
+			"title": "Source code is downloaded over cleartext HTTP in portaudio",
+			"description": "An issue was discovered in the portaudio crate through 0.7.0 for Rust. There is a man-in-the-middle issue because the source code is downloaded over cleartext HTTP.",
+			"severity": [
+				{
+					"type": "cvss_v30",
+					"source": "github.com/advisories",
+					"cvss_v30": {
+						"vector": "CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+						"base_score": 5.9,
+						"base_severity": "MEDIUM",
+						"temporal_score": 5.9,
+						"temporal_severity": "MEDIUM",
+						"environmental_score": 5.9,
+						"environmental_severity": "MEDIUM"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "MODERATE"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2016-10933"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/RustAudio/rust-portaudio/issues/144"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/RustAudio/rust-portaudio"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2016-0003.html"
+				}
+			],
+			"published": "2021-08-25T20:43:09Z",
+			"modified": "2021-08-19T21:25:09Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2016-10933"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "portaudio"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"le": "0.7.0"
+					}
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

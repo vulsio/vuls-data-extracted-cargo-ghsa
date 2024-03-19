@@ -1,0 +1,79 @@
+{
+	"id": "GHSA-rfgg-vccr-m46m",
+	"advisories": [
+		{
+			"id": "GHSA-rfgg-vccr-m46m",
+			"title": "Missing release of memory in sized-chunks",
+			"description": "An issue was discovered in the sized-chunks crate through 0.6.2 for Rust. In the Chunk implementation, clone can have a memory-safety issue upon a panic.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"base_score": 7.5,
+						"base_severity": "HIGH",
+						"temporal_score": 7.5,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7.5,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2020-25794"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/bodil/sized-chunks/issues/11"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/bodil/sized-chunks"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2020-0041.html"
+				}
+			],
+			"published": "2021-08-25T20:45:58Z",
+			"modified": "2021-08-19T21:20:37Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2020-25794"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "sized-chunks"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.6.3"
+					}
+				],
+				"fixed": [
+					"0.6.3"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

@@ -1,0 +1,54 @@
+{
+	"id": "GHSA-9qxh-258v-666c",
+	"advisories": [
+		{
+			"id": "GHSA-9qxh-258v-666c",
+			"title": "owning_ref vulnerable to multiple soundness issues",
+			"description": "- `OwningRef::map_with_owner` is [unsound](https://github.com/Kimundi/owning-ref-rs/issues/77) and may result in a use-after-free.\n- `OwningRef::map` is [unsound](https://github.com/Kimundi/owning-ref-rs/issues/71) and may result in a use-after-free.\n- `OwningRefMut::as_owner` and `OwningRefMut::as_owner_mut` are [unsound](https://github.com/Kimundi/owning-ref-rs/issues/61) and may result in a use-after-free.\n- The crate [violates Rust's aliasing rules](https://github.com/Kimundi/owning-ref-rs/issues/49), which may cause miscompilations on recent compilers that emit the LLVM `noalias` attribute.\n\nNo patched versions are available at this time. While a pull request with some fixes is outstanding, the maintainer appears to be unresponsive.\n",
+			"severity": [
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "MODERATE"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/Kimundi/owning-ref-rs"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/noamtashma/owning-ref-unsoundness"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2022-0040.html"
+				}
+			],
+			"published": "2022-08-10T17:26:00Z",
+			"modified": "2022-08-10T17:26:00Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "owning_ref"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"le": "0.4.1"
+					}
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

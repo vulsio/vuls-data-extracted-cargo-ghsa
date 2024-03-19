@@ -1,0 +1,87 @@
+{
+	"id": "GHSA-mc36-5m36-hjh5",
+	"advisories": [
+		{
+			"id": "GHSA-mc36-5m36-hjh5",
+			"title": "Data races in slock",
+			"description": "An issue was discovered in the slock crate through 2020-11-17 for Rust. Slock<T> unconditionally implements Send and Sync.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"base_score": 8.1,
+						"base_severity": "HIGH",
+						"temporal_score": 8.1,
+						"temporal_severity": "HIGH",
+						"environmental_score": 8.1,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2020-36455"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/BrokenLamp/slock-rs/issues/2"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/BrokenLamp/slock-rs/commit/719df35f55b6cab4ca2a7f840347a06ecbd8aac6"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/BrokenLamp/slock-rs"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://raw.githubusercontent.com/rustsec/advisory-db/main/crates/slock/RUSTSEC-2020-0135.md"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2020-0135.html"
+				}
+			],
+			"published": "2021-08-25T20:58:00Z",
+			"modified": "2021-08-18T20:21:54Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2020-36455"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "slock"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.2.0"
+					}
+				],
+				"fixed": [
+					"0.2.0"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

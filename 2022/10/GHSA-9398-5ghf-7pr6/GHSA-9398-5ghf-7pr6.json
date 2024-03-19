@@ -1,0 +1,84 @@
+{
+	"id": "GHSA-9398-5ghf-7pr6",
+	"advisories": [
+		{
+			"id": "GHSA-9398-5ghf-7pr6",
+			"title": "conduit-hyper vulnerable to Denial of Service from unchecked request length",
+			"description": "Prior to version 0.4.2, `conduit-hyper` did not check any limit on a request's length before calling [`hyper::body::to_bytes`](https://docs.rs/hyper/latest/hyper/body/fn.to_bytes.html). An attacker could send a malicious request with an abnormally large `Content-Length`, which could lead to a panic if memory allocation failed for that request.\n\nIn version 0.4.2, `conduit-hyper` sets an internal limit of 128 MiB per request, otherwise returning status 400 (\"Bad Request\").\n\nThis crate is part of the implementation of Rust's [crates.io](https://crates.io/), but that service is not affected due to its existing cloud infrastructure, which already drops such malicious requests. Even with the new limit in place, `conduit-hyper` is not recommended for production use, nor to directly serve the public Internet.\n\nThe vulnerability was discovered by Ori Hollander from the JFrog Security Research team.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"base_score": 7.5,
+						"base_severity": "HIGH",
+						"temporal_score": 7.5,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7.5,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/conduit-rust/conduit-hyper/security/advisories/GHSA-9398-5ghf-7pr6"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2022-39294"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/conduit-rust/conduit-hyper/commit/4d225a53206505d39438ec6694e15f49c038baff"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/conduit-rust/conduit-hyper"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2022-0066.html"
+				}
+			],
+			"published": "2022-10-31T18:44:47Z",
+			"modified": "2022-10-31T18:44:47Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2022-39294"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "conduit-hyper"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.4.2",
+						"ge": "0.2.0-alpha.3"
+					}
+				],
+				"fixed": [
+					"0.4.2"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

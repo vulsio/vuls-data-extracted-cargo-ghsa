@@ -1,0 +1,79 @@
+{
+	"id": "GHSA-h7qh-3h6f-w79p",
+	"advisories": [
+		{
+			"id": "GHSA-h7qh-3h6f-w79p",
+			"title": "Unexpected panic in multihash",
+			"description": "In versions prior 0.11.3 it's possible to make from_slice panic by feeding it certain malformed input. It's never documented that from_slice (and from_bytes which wraps it) can panic, and its' return type (Result<Self, DecodeError>) suggests otherwise. In practice, from_slice/from_bytes is frequently used in networking code and is being called with unsanitized data from untrusted sources. This can allow attackers to cause DoS by causing an unexpected panic in the network client's code..",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"base_score": 7.5,
+						"base_severity": "HIGH",
+						"temporal_score": 7.5,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7.5,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2020-35909"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/multiformats/rust-multihash/pull/72"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/multiformats/rust-multihash"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2020-0068.html"
+				}
+			],
+			"published": "2021-08-25T20:49:41Z",
+			"modified": "2023-06-13T20:05:17Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2020-35909"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "multihash"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.11.3"
+					}
+				],
+				"fixed": [
+					"0.11.3"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}
