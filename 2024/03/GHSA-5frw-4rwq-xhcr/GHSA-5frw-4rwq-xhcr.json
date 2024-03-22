@@ -32,15 +32,23 @@
 				},
 				{
 					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2024-27932"
+				},
+				{
+					"source": "github.com/advisories",
 					"url": "https://github.com/denoland/deno/commit/de23e3b60b066481cc390f459497d5bef42a899b"
 				},
 				{
 					"source": "github.com/advisories",
 					"url": "https://github.com/denoland/deno"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/denoland/deno/blob/3f4639c330a31741b0efda2f93ebbb833f4f95bc/cli/auth_tokens.rs#L89"
 				}
 			],
 			"published": "2024-03-06T17:03:36Z",
-			"modified": "2024-03-06T17:03:36Z",
+			"modified": "2024-03-21T18:25:42Z",
 			"optional": {
 				"github_reviewed": true
 			}

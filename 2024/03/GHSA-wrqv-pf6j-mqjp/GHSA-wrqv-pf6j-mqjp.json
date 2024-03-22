@@ -32,6 +32,10 @@
 				},
 				{
 					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2024-27935"
+				},
+				{
+					"source": "github.com/advisories",
 					"url": "https://github.com/denoland/deno/issues/20188"
 				},
 				{
@@ -44,7 +48,7 @@
 				}
 			],
 			"published": "2024-03-05T20:49:14Z",
-			"modified": "2024-03-05T20:49:14Z",
+			"modified": "2024-03-21T18:29:19Z",
 			"optional": {
 				"github_reviewed": true
 			}

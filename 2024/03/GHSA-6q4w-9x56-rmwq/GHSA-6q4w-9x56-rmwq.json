@@ -32,6 +32,10 @@
 				},
 				{
 					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2024-27933"
+				},
+				{
+					"source": "github.com/advisories",
 					"url": "https://github.com/denoland/deno/commit/55fac9f5ead6d30996400e8597c969b675c5a22b"
 				},
 				{
@@ -41,10 +45,38 @@
 				{
 					"source": "github.com/advisories",
 					"url": "https://github.com/denoland/deno"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/denoland/deno/blob/v1.39.0/runtime/permissions/prompter.rs#L214"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/denoland/deno/blob/v1.39.0/runtime/permissions/prompter.rs#L220"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/denoland/deno/blob/v1.39.0/runtime/permissions/prompter.rs#L225"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/denoland/deno/blob/v1.39.0/runtime/permissions/prompter.rs#L241"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/denoland/deno/blob/v1.39.0/runtime/permissions/prompter.rs#L256"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/denoland/deno/blob/v1.39.0/runtime/permissions/prompter.rs#L265"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/denoland/deno/blob/v1.39.0/runtime/permissions/prompter.rs#L99"
 				}
 			],
 			"published": "2024-03-06T17:04:08Z",
-			"modified": "2024-03-06T17:04:08Z",
+			"modified": "2024-03-21T18:29:15Z",
 			"optional": {
 				"github_reviewed": true
 			}
