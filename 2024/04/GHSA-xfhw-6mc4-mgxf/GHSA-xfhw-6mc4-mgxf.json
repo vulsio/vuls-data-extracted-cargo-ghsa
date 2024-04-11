@@ -1,0 +1,72 @@
+{
+	"id": "GHSA-xfhw-6mc4-mgxf",
+	"advisories": [
+		{
+			"id": "GHSA-xfhw-6mc4-mgxf",
+			"title": "crayon: ObjectPool creates uninitialized memory when freeing objects",
+			"description": "As of version 0.6.0, the ObjectPool explicitly creates an uninitialized instance of its type parameter when it attempts to free an object, and swaps it into the storage. This causes instant undefined behavior due to reading the uninitialized memory in order to write it to the pool storage.\n\nExtremely basic usage of the crate can trigger this issue, e.g. this code from a doctest:\n\n```rust\nuse crayon::prelude::*;\napplication::oneshot().unwrap();\n\nlet mut params = MeshParams::default();\n\nlet mesh = video::create_mesh(params, None).unwrap();\n\n// Deletes the mesh object.\nvideo::delete_mesh(mesh); // <-- UB\n```\n\nThe Clippy warning for this code was silenced in commit c2fde19caf6149d91faa504263f0bc5cafc35de5.\n\nDiscovered via https://asan.saethlin.dev/ub?crate=crayon&version=0.7.1\n",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"base_score": 7.5,
+						"base_severity": "HIGH",
+						"temporal_score": 7.5,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7.5,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/shawnscode/crayon/issues/109"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/shawnscode/crayon/commit/c2fde19caf6149d91faa504263f0bc5cafc35de5"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/shawnscode/crayon"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2024-0018.html"
+				}
+			],
+			"published": "2024-04-05T15:40:40Z",
+			"modified": "2024-04-05T15:40:40Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "crayon"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"le": "0.7.1",
+						"ge": "0.6.0"
+					}
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}

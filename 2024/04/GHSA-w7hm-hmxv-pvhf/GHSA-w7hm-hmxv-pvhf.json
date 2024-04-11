@@ -1,0 +1,71 @@
+{
+	"id": "GHSA-w7hm-hmxv-pvhf",
+	"advisories": [
+		{
+			"id": "GHSA-w7hm-hmxv-pvhf",
+			"title": "HPACK decoder panics on invalid input",
+			"description": "Due to insufficient checking of input data, decoding certain data sequences can lead to _Decoder::decode_ panicking rather than returning an error.\n\nExample code that triggers this vulnerability looks like this:\n\n```rust\nuse hpack::Decoder;\n\npub fn main() {\n  let input = &[0x3f];\n  let mut decoder = Decoder::new();\n  let _ = decoder.decode(input);\n}\n```\n\nhpack is unmaintained. A crate with the panics fixed has been published as [hpack-patched](https://crates.io/crates/hpack-patched).\n\nAlso consider using [fluke-hpack](https://crates.io/crates/fluke-hpack) or [httlib-huffman](https://crates.io/crates/httlib-huffman) as an alternative.",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"base_score": 7.5,
+						"base_severity": "HIGH",
+						"temporal_score": 7.5,
+						"temporal_severity": "HIGH",
+						"environmental_score": 7.5,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/mlalic/hpack-rs/issues/11"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/sno2/hpack-rs-patched/commit/d669282924a95311599e9e7dd53869ee96b3a2f5"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/mlalic/hpack-rs"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2023-0085.html"
+				}
+			],
+			"published": "2024-04-05T15:06:27Z",
+			"modified": "2024-04-05T15:06:27Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "hpack"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"le": "0.3.0"
+					}
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}
