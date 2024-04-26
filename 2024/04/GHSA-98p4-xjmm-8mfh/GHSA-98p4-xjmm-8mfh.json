@@ -27,10 +27,15 @@
 				}
 			],
 			"published": "2024-04-15T19:33:03Z",
-			"modified": "2024-04-15T19:33:03Z",
+			"modified": "2024-04-26T16:52:12Z",
 			"optional": {
 				"github_reviewed": true
 			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2024-32884"
 		}
 	],
 	"detection": [
