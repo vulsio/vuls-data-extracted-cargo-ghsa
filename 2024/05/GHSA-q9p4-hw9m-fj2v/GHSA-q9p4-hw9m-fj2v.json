@@ -32,6 +32,10 @@
 				},
 				{
 					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2024-32971"
+				},
+				{
+					"source": "github.com/advisories",
 					"url": "https://github.com/apollographql/router/commit/ff9f666598cd17661880fe7fc6e9c9611316e529"
 				},
 				{
@@ -41,10 +45,14 @@
 				{
 					"source": "github.com/advisories",
 					"url": "https://github.com/apollographql/router/releases/tag/v1.45.1"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://www.apollographql.com/docs/router/configuration/distributed-caching/#distributed-query-plan-caching"
 				}
 			],
 			"published": "2024-05-02T08:20:00Z",
-			"modified": "2024-05-02T08:20:00Z",
+			"modified": "2024-05-02T19:35:51Z",
 			"optional": {
 				"github_reviewed": true
 			}
