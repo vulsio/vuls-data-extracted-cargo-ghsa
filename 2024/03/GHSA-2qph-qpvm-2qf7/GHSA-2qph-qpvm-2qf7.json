@@ -49,10 +49,14 @@
 				{
 					"source": "github.com/advisories",
 					"url": "https://github.com/tmccombs/tls-listener/releases/tag/v0.10.0"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2024-0341.html"
 				}
 			],
 			"published": "2024-03-15T19:57:22Z",
-			"modified": "2024-03-18T18:33:18Z",
+			"modified": "2024-05-20T15:29:52Z",
 			"optional": {
 				"github_reviewed": true
 			}

@@ -41,10 +41,14 @@
 				{
 					"source": "github.com/advisories",
 					"url": "https://github.com/matrix-org/vodozemac"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2024-0342.html"
 				}
 			],
 			"published": "2024-05-03T19:34:07Z",
-			"modified": "2024-05-03T19:34:07Z",
+			"modified": "2024-05-20T15:34:44Z",
 			"optional": {
 				"github_reviewed": true
 			}
