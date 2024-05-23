@@ -32,11 +32,15 @@
 				},
 				{
 					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2024-35186"
+				},
+				{
+					"source": "github.com/advisories",
 					"url": "https://github.com/Byron/gitoxide"
 				}
 			],
 			"published": "2024-05-22T14:05:58Z",
-			"modified": "2024-05-22T14:05:58Z",
+			"modified": "2024-05-23T13:57:06Z",
 			"optional": {
 				"github_reviewed": true
 			}
