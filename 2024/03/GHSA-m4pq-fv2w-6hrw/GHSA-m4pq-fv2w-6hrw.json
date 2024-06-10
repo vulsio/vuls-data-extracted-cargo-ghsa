@@ -48,7 +48,7 @@
 				}
 			],
 			"published": "2024-03-05T20:54:14Z",
-			"modified": "2024-03-21T18:29:23Z",
+			"modified": "2024-06-10T12:32:57Z",
 			"optional": {
 				"github_reviewed": true
 			}
@@ -64,18 +64,37 @@
 			"ecosystem": "cargo",
 			"vulnerable": true,
 			"package": {
+				"name": "deno"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "1.41.0",
+						"ge": "1.32.1"
+					}
+				],
+				"fixed": [
+					"1.41.0"
+				]
+			}
+		},
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
 				"name": "deno_runtime"
 			},
 			"affected": {
 				"type": "semver",
 				"range": [
 					{
-						"lt": "1.41",
-						"ge": "1.32.1"
+						"lt": "0.147.0",
+						"ge": "0.103.0"
 					}
 				],
 				"fixed": [
-					"1.41"
+					"0.147.0"
 				]
 			}
 		}
