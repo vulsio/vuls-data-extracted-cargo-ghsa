@@ -41,10 +41,14 @@
 				{
 					"source": "github.com/advisories",
 					"url": "https://github.com/viz-rs/nano-id"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2024-0343.html"
 				}
 			],
 			"published": "2024-06-04T18:40:34Z",
-			"modified": "2024-06-04T18:40:34Z",
+			"modified": "2024-06-17T15:09:50Z",
 			"optional": {
 				"github_reviewed": true
 			}
