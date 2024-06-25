@@ -60,11 +60,15 @@
 				},
 				{
 					"source": "github.com/advisories",
+					"url": "https://security.netapp.com/advisory/ntap-20240621-0006"
+				},
+				{
+					"source": "github.com/advisories",
 					"url": "https://www.openssl.org/news/secadv/20230207.txt"
 				}
 			],
 			"published": "2023-02-08T22:28:34Z",
-			"modified": "2023-02-21T20:00:42Z",
+			"modified": "2024-06-24T21:24:19Z",
 			"optional": {
 				"github_reviewed": true
 			}
