@@ -20,6 +20,15 @@
 					}
 				},
 				{
+					"type": "cvss_v40",
+					"source": "github.com/advisories",
+					"cvss_v40": {
+						"vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:A/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+						"score": 8.6,
+						"severity": "HIGH"
+					}
+				},
+				{
 					"type": "vendor",
 					"source": "github.com/advisories",
 					"vendor": "HIGH"
@@ -37,10 +46,18 @@
 				{
 					"source": "github.com/advisories",
 					"url": "https://github.com/Byron/gitoxide"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2024-0348.html"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://rustsec.org/advisories/RUSTSEC-2024-0350.html"
 				}
 			],
 			"published": "2024-05-22T14:05:58Z",
-			"modified": "2024-05-23T13:57:06Z",
+			"modified": "2024-07-08T16:20:56Z",
 			"optional": {
 				"github_reviewed": true
 			}
