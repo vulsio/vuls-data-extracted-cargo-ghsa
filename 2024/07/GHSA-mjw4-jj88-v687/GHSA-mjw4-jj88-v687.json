@@ -1,0 +1,101 @@
+{
+	"id": "GHSA-mjw4-jj88-v687",
+	"advisories": [
+		{
+			"id": "GHSA-mjw4-jj88-v687",
+			"title": "panic on parsing crafted phonenumber inputs",
+			"description": "### Impact\nThe phonenumber parsing code may panic due to a reachable `assert!` guard on the phonenumber string.\n\nIn a typical deployment of rust-phonenumber, this may get triggered by feeding a maliciously crafted phonenumber, e.g. over the network, specifically strings of the form `+dwPAA;phone-context=AA`, where the \"number\" part potentially parses as a number larger than 2^56.\n\nSince f69abee1/0.3.4/#52.\n\n0.2.x series is not affected.\n\n### Patches\nUpgrade to 0.3.6 or higher.\n\n### Workarounds\nn/a\n\n### References\nWhereas https://github.com/whisperfish/rust-phonenumber/issues/69 did not provide an example code path, property testing found a few: `+dwPAA;phone-context=AA`.\n",
+			"severity": [
+				{
+					"type": "cvss_v31",
+					"source": "github.com/advisories",
+					"cvss_v31": {
+						"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:N/I:N/A:H",
+						"base_score": 8.6,
+						"base_severity": "HIGH",
+						"temporal_score": 8.6,
+						"temporal_severity": "HIGH",
+						"environmental_score": 8.6,
+						"environmental_severity": "HIGH"
+					}
+				},
+				{
+					"type": "cvss_v40",
+					"source": "github.com/advisories",
+					"cvss_v40": {
+						"vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:H",
+						"score": 9.2,
+						"severity": "CRITICAL"
+					}
+				},
+				{
+					"type": "vendor",
+					"source": "github.com/advisories",
+					"vendor": "HIGH"
+				}
+			],
+			"references": [
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/whisperfish/rust-phonenumber/security/advisories/GHSA-mjw4-jj88-v687"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://nvd.nist.gov/vuln/detail/CVE-2024-39697"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/whisperfish/rust-phonenumber/issues/69"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/whisperfish/rust-phonenumber/pull/52"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/whisperfish/rust-phonenumber/commit/b792151b17fc90231c232a23935830c2266f3203"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/whisperfish/rust-phonenumber/commit/f69abee1481fac0d6d531407bae90020e39c6407"
+				},
+				{
+					"source": "github.com/advisories",
+					"url": "https://github.com/whisperfish/rust-phonenumber"
+				}
+			],
+			"published": "2024-07-09T14:13:48Z",
+			"modified": "2024-07-09T15:40:36Z",
+			"optional": {
+				"github_reviewed": true
+			}
+		}
+	],
+	"vulnerabilities": [
+		{
+			"id": "CVE-2024-39697"
+		}
+	],
+	"detection": [
+		{
+			"ecosystem": "cargo",
+			"vulnerable": true,
+			"package": {
+				"name": "phonenumber"
+			},
+			"affected": {
+				"type": "semver",
+				"range": [
+					{
+						"lt": "0.3.6",
+						"ge": "0.3.4"
+					}
+				],
+				"fixed": [
+					"0.3.6"
+				]
+			}
+		}
+	],
+	"data_source": "cargo-ghsa"
+}
