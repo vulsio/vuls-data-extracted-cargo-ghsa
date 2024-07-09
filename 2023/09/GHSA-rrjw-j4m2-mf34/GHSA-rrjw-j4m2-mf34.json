@@ -4,7 +4,7 @@
 		{
 			"id": "GHSA-rrjw-j4m2-mf34",
 			"title": "gix-transport code execution vulnerability",
-			"description": "The `gix-transport` crate prior to the patched version 0.36.1 would allow attackers to use malicious ssh clone URLs to pass arbitrary arguments to the `ssh` program, leading to arbitrary code execution.\n\nPoC: `gix clone 'ssh://-oProxyCommand=open$IFS-aCalculator/foo'`\n\nThis will launch a calculator on OSX.\n\nSee https://secure.phabricator.com/T12961 for more details on similar vulnerabilities in `git`.",
+			"description": "The `gix-transport` crate prior to the patched version 0.36.1 would allow attackers to use malicious ssh clone URLs to pass arbitrary arguments to the `ssh` program, leading to arbitrary code execution.\n\nPoC: `gix clone 'ssh://-oProxyCommand=open$IFS-aCalculator/foo'`\n\nThis will launch a calculator on OSX.\n\nSee https://secure.phabricator.com/T12961 for more details on similar vulnerabilities in `git`.\n\nThanks for [vin01](https://github.com/vin01) for disclosing this issue.",
 			"severity": [
 				{
 					"type": "vendor",
@@ -31,7 +31,7 @@
 				}
 			],
 			"published": "2023-09-25T20:21:16Z",
-			"modified": "2023-09-25T20:21:16Z",
+			"modified": "2024-07-08T18:43:09Z",
 			"optional": {
 				"github_reviewed": true
 			}
